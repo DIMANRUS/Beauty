@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <Frame HasShadow="True" Padding="12" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" CornerRadius="20">
             <StackLayout>
-                <Label Text="Вход" FontSize="40" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Label Text="Вход" FontSize="40" TextColor="Yellow" FontAttributes="Bold" HorizontalOptions="Center"/>
                 <Entry Placeholder="Введите почту" WidthRequest="300" PlaceholderColor="DarkGray" HorizontalTextAlignment="Center"/>
                 <Entry Placeholder="Введите пароль" WidthRequest="300" PlaceholderColor="DarkGray" IsPassword="True" TextColor="Black" HorizontalTextAlignment="Center"/>
                 <Button Text="Войти" CornerRadius="10" FontAttributes="Bold" BackgroundColor="DarkViolet" FontSize="16" HeightRequest="35"/>
