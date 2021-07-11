@@ -1,0 +1,21 @@
+﻿@page "/Reset/{Email}/{Token}"
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Beauty.API.ViewModels
+@model ResetPasswordVM
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Сброс пароля</title>
+</head>
+<body>
+    <h1>СБрос пароля</h1>
+    <form method="post" action="https://localhost:10949/api/auth/reset/@RouteData.Values["Email"]/@RouteData.Values["Token"]">       
+        <input type="text" asp-for="Password" placeholder="Пароль"/>
+        <input type="text" asp-for="ConfirmPassword" placeholder="Повторите пароль" />
+        <input type="submit" placeholder="Сбросить" />
+    </form>
+    <h1>@RouteData.Values["Email"]</h1>
+    <h1>@RouteData.Values["Token"]</h1>
+</body>
+</html>

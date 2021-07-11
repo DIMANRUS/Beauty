@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Beauty.Views.AuthPage"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="White">
+    <ContentPage.Content>
+        <Frame HasShadow="True" Padding="12" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" CornerRadius="20">
+            <StackLayout>
+                <Label Text="Вход" FontSize="40" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Entry Placeholder="Введите почту" WidthRequest="300" PlaceholderColor="DarkGray" HorizontalTextAlignment="Center"/>
+                <Entry Placeholder="Введите пароль" WidthRequest="300" PlaceholderColor="DarkGray" IsPassword="True" TextColor="Black" HorizontalTextAlignment="Center"/>
+                <Button Text="Войти" CornerRadius="10" FontAttributes="Bold" BackgroundColor="DarkViolet" FontSize="16" HeightRequest="35"/>
+                <Button Text="Зарегистрироваться" CornerRadius="10" FontAttributes="Bold" BackgroundColor="DarkViolet" FontSize="16" HeightRequest="35"/>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

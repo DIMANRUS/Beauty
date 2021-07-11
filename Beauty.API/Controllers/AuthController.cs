@@ -1,0 +1,61 @@
+﻿using Beauty.API.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using Beauty.Shared.ViewModels;
+using Beauty.API.ViewModels;
+
+namespace Beauty.API.Controllers {
+    [Route("api/[controller]")]
+    [ApiController]
+    public class AuthController : Controller {
+        public IUserService _userService;
+        public AuthController(IUserService userService)
+            => _userService = userService;
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegistrationViewModel registrationViewModel) {
+            if (ModelState.IsValid) {
+                var result = await _userService.Register(registrationViewModel);
+                if (result.IsSuccess)
+                    return Ok(result);
+                return BadRequest(result);
+            }
+            return BadRequest("Fields not valid");
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginViewModel loginViewModel) {
+            if (ModelState.IsValid) {
+                var result = await _userService.Login(loginViewModel);
+                if (result.IsSuccess)
+                    return Ok(result);
+                return BadRequest(result);
+            }
+            return BadRequest("Fields not valid");
+        }
+
+        [HttpPost("forget/{email}")]
+        public async Task<IActionResult> ForgetPassword([FromRoute]string email) {
+            if (email is not null) {
+                var result = await _userService.ForgetPassword(email);
+                if (result.IsSuccess)
+                    return Ok(result);
+                return BadRequest(result);
+            }
+            return BadRequest("Data null");
+        }
+
+        [HttpPost("reset/{Email}/{Token}")]
+        public async Task<IActionResult> ResetPassword([FromForm]ResetPasswordVM resetPasswordVM, [FromRoute]string Email, [FromRoute]string Token) {
+            if (ModelState.IsValid) {
+                resetPasswordVM.Email = Email;
+                resetPasswordVM.Token = Token;
+                var result = await _userService.ResetPassword(resetPasswordVM);
+                if (result.IsSuccess)
+                    return Ok(result);
+                return BadRequest(result);
+            }
+            return BadRequest("Error data");
+        }
+    }
+}
