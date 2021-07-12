@@ -25,9 +25,13 @@
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+    <None Remove="Responses\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Beauty.Shared\Beauty.Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Responses\" />
   </ItemGroup>
 </Project>

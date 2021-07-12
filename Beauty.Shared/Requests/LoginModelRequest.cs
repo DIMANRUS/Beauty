@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Beauty.Shared.ViewModels {
-    public class LoginViewModel {
+namespace Beauty.Shared.Requests {
+    public class LoginModelRequest {
         [Required]
         [StringLength(50, MinimumLength =3)]
         [EmailAddress]

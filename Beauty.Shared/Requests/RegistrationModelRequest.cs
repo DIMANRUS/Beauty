@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Beauty.Shared.ViewModels {
-    public class RegistrationViewModel {
+namespace Beauty.Shared.Requests {
+    public class RegistrationModelRequest {
         [Required]
         [StringLength(100, MinimumLength = 5)]
         public string UserName { get; set; }

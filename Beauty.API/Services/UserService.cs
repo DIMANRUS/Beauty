@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Beauty.Shared.Response;
-using Beauty.Shared.ViewModels;
+using Beauty.Shared.Requests;
 using Beauty.API.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Beauty.API.Models;
@@ -15,6 +14,7 @@ using Beauty.API.Contexts;
 using System.Linq;
 using Microsoft.AspNetCore.WebUtilities;
 using Beauty.API.ViewModels;
+using Beauty.API.Responses;
 
 namespace Beauty.API.Services {
     public class UserService : IUserService {
@@ -49,11 +49,11 @@ namespace Beauty.API.Services {
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-        public async Task<UserManagerResponse> Login(LoginViewModel loginViewModel) {
-            if (loginViewModel is not null) {
-                var user = await _userManager.FindByEmailAsync(loginViewModel.Email);
+        public async Task<UserManagerResponse> Login(LoginModelRequest loginModel) {
+            if (loginModel is not null) {
+                var user = await _userManager.FindByEmailAsync(loginModel.Email);
                 if (user is not null) {
-                    var resultPassword = await _userManager.CheckPasswordAsync(user, loginViewModel.Password);
+                    var resultPassword = await _userManager.CheckPasswordAsync(user, loginModel.Password);
                     if (resultPassword) {
                         return new UserManagerResponse { IsSuccess = true, Message = await GetToken(user) };
                     }
@@ -63,18 +63,18 @@ namespace Beauty.API.Services {
             }
             return new UserManagerResponse() { IsSuccess = false, Message = "Model is null" };
         }
-        public async Task<UserManagerResponse> Register(RegistrationViewModel registrationViewModel) {
-            if (registrationViewModel is not null) {
-                var users = await _applicationDbContext.Users.Where(u => u.Email == registrationViewModel.Email).ToListAsync();
+        public async Task<UserManagerResponse> Register(RegistrationModelRequest registrationModel) {
+            if (registrationModel is not null) {
+                var users = await _applicationDbContext.Users.Where(u => u.Email == registrationModel.Email).ToListAsync();
                 if (users.Count == 0) {
-                    var role = await _roleManager.FindByNameAsync(registrationViewModel.Role);
+                    var role = await _roleManager.FindByNameAsync(registrationModel.Role);
                     if (role is not null) {
                         var validateUser = new User() {
-                            PhoneNumber = registrationViewModel.Phone,
-                            UserName = registrationViewModel.UserName,
-                            Email = registrationViewModel.Email,
+                            PhoneNumber = registrationModel.Phone,
+                            UserName = registrationModel.UserName,
+                            Email = registrationModel.Email,
                         };
-                        var result = await _userManager.CreateAsync(validateUser, registrationViewModel.Password);
+                        var result = await _userManager.CreateAsync(validateUser, registrationModel.Password);
                         if (result.Succeeded) {
                             await _userManager.AddToRoleAsync(validateUser, role.Name);
                             return new UserManagerResponse() { IsSuccess = true, Message = await GetToken(validateUser) };

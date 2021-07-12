@@ -19,10 +19,15 @@
     <Compile Remove="Models\**" />
     <EmbeddedResource Remove="Models\**" />
     <None Remove="Models\**" />
+    <None Remove="System.Text.Json" />
+    <None Remove="Xamarin.CommunityToolkit" />
+    <None Remove="Converters\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="System.Text.Json" Version="5.0.2" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -34,6 +39,7 @@
     <Folder Include="ViewModels\" />
     <Folder Include="ViewModels\Shared\" />
     <Folder Include="Views\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Beauty.Shared\Beauty.Shared.csproj" />

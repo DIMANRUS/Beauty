@@ -1,8 +1,9 @@
 ﻿using Beauty.API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Beauty.Shared.ViewModels;
+using Beauty.Shared.Requests;
 using Beauty.API.ViewModels;
+using Beauty.API.Responses;
 
 namespace Beauty.API.Controllers {
     [Route("api/[controller]")]
@@ -13,34 +14,34 @@ namespace Beauty.API.Controllers {
             => _userService = userService;
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegistrationViewModel registrationViewModel) {
+        public async Task<IActionResult> Register([FromBody] RegistrationModelRequest registrationModel) {
             if (ModelState.IsValid) {
-                var result = await _userService.Register(registrationViewModel);
+                var result = await _userService.Register(registrationModel);
                 if (result.IsSuccess)
-                    return Ok(result);
-                return BadRequest(result);
+                    return Ok(result.Message);
+                return BadRequest(result.Message);
             }
             return BadRequest("Fields not valid");
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginViewModel loginViewModel) {
+        public async Task<IActionResult> Login([FromBody] LoginModelRequest loginModel) {
             if (ModelState.IsValid) {
-                var result = await _userService.Login(loginViewModel);
+                var result = await _userService.Login(loginModel);
                 if (result.IsSuccess)
-                    return Ok(result);
-                return BadRequest(result);
+                    return Ok(result.Message);
+                return BadRequest(result.Message);
             }
             return BadRequest("Fields not valid");
         }
 
-        [HttpPost("forget/{email}")]
+        [HttpGet("forget/{email}")]
         public async Task<IActionResult> ForgetPassword([FromRoute]string email) {
             if (email is not null) {
                 var result = await _userService.ForgetPassword(email);
                 if (result.IsSuccess)
-                    return Ok(result);
-                return BadRequest(result);
+                    return Ok(result.Message);
+                return BadRequest(result.Message);
             }
             return BadRequest("Data null");
         }
@@ -52,8 +53,8 @@ namespace Beauty.API.Controllers {
                 resetPasswordVM.Token = Token;
                 var result = await _userService.ResetPassword(resetPasswordVM);
                 if (result.IsSuccess)
-                    return Ok(result);
-                return BadRequest(result);
+                    return Ok(result.Message);
+                return BadRequest(result.Message);
             }
             return BadRequest("Error data");
         }
