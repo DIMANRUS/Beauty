@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace Beauty.Views
+namespace Beauty.Pages.BarPages
 {
-    public partial class BottomBarPage : Shell
+    public partial class StatisticPage : ContentPage
     {
-        public BottomBarPage()
+        public StatisticPage()
         {
             InitializeComponent();
         }

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Beauty.Pages.BottomBarPage"
+    xmlns:pages="clr-namespace:Beauty.Pages"
+    xmlns:barpages="clr-namespace:Beauty.Pages.BarPages"
+    Shell.NavBarHasShadow="True"
+    Shell.TabBarTitleColor="DarkViolet">
+    <TabBar>
+        <ShellContent Title=""
+                     Icon="calendar.png"
+                     ContentTemplate="{DataTemplate barpages:CalendarPage}"/>
+        <ShellContent Title=""
+                      Icon="statistic.png"
+                     ContentTemplate="{DataTemplate barpages:StatisticPage}" />
+        <ShellContent Title=""
+                      Icon="sale.png"
+                     ContentTemplate="{DataTemplate barpages:SalePage}" />
+        <ShellContent Title=""
+                     Icon="chat.png"
+                     ContentTemplate="{DataTemplate barpages:ChatPage}" />
+        <ShellContent Title=""
+                      Icon="user.png"
+                     ContentTemplate="{DataTemplate barpages:UserPage}" />
+    </TabBar>
+</Shell>

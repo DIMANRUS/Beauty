@@ -72,6 +72,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShellCustomRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -189,6 +190,22 @@
     <ImageAsset Include="Assets.xcassets\user.imageset\user-2.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar.png" />
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar-1.png" />
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar-2.png" />
+    <ImageAsset Include="Assets.xcassets\sale.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\sale.imageset\sale.png" />
+    <ImageAsset Include="Assets.xcassets\sale.imageset\sale-1.png" />
+    <ImageAsset Include="Assets.xcassets\sale.imageset\sale-2.png" />
+    <ImageAsset Include="Assets.xcassets\statistic.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\statistic.imageset\statistic.png" />
+    <ImageAsset Include="Assets.xcassets\statistic.imageset\statistic-1.png" />
+    <ImageAsset Include="Assets.xcassets\statistic.imageset\statistic-2.png" />
+    <ImageAsset Include="Assets.xcassets\chat.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\chat.imageset\chat.png" />
+    <ImageAsset Include="Assets.xcassets\chat.imageset\chat-1.png" />
+    <ImageAsset Include="Assets.xcassets\chat.imageset\chat-2.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -216,5 +233,9 @@
     <Folder Include="Assets.xcassets\password.imageset\" />
     <Folder Include="Assets.xcassets\phone.imageset\" />
     <Folder Include="Assets.xcassets\user.imageset\" />
+    <Folder Include="Assets.xcassets\calendar.imageset\" />
+    <Folder Include="Assets.xcassets\sale.imageset\" />
+    <Folder Include="Assets.xcassets\statistic.imageset\" />
+    <Folder Include="Assets.xcassets\chat.imageset\" />
   </ItemGroup>
 </Project>

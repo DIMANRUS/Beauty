@@ -22,6 +22,8 @@
     <None Remove="System.Text.Json" />
     <None Remove="Xamarin.CommunityToolkit" />
     <None Remove="Converters\" />
+    <None Remove="Pages\" />
+    <None Remove="Pages\BarPages\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
@@ -33,13 +35,13 @@
     <None Remove="Models\" />
     <None Remove="ViewModels\" />
     <None Remove="ViewModels\Shared\" />
-    <None Remove="Views\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
     <Folder Include="ViewModels\Shared\" />
-    <Folder Include="Views\" />
     <Folder Include="Converters\" />
+    <Folder Include="Pages\" />
+    <Folder Include="Pages\BarPages\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Beauty.Shared\Beauty.Shared.csproj" />

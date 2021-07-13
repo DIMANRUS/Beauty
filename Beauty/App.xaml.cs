@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Beauty.Views;
+using Beauty.Pages;
 using Xamarin.Essentials;
 using System.Threading.Tasks;
 
@@ -12,11 +12,12 @@ namespace Beauty
         public App()
         {
             InitializeComponent();
+            Application.Current.UserAppTheme = OSAppTheme.Light;
             string userId = "";
             var task = Task.Factory.StartNew(async()
                 => userId = await SecureStorage.GetAsync("user"));
             task.Wait();
-            MainPage = new NavigationPage((userId is null) ? new AuthPage() : new BottomBarPage());
+            MainPage = (userId is null) ? new AuthPage() : new BottomBarPage();
         }
 
         protected override void OnStart()

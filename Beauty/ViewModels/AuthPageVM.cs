@@ -10,7 +10,7 @@ using System.Net;
 using Xamarin.Essentials;
 using Xamarin.CommunityToolkit.UI.Views;
 using System.Threading.Tasks;
-using Beauty.Views;
+using Beauty.Pages;
 
 namespace Beauty.ViewModels
 {
