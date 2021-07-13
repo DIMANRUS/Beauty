@@ -8,13 +8,15 @@
     xmlns:VM="clr-namespace:Beauty.ViewModels"
     xmlns:xctk="http://xamarin.com/schemas/2020/toolkit"
     xmlns:converters="clr-namespace:Beauty.Converters"
-    x:Name="Page">
+    x:Name="Page"
+    x:DataType="VM:AuthPageVM">
     <ContentPage.Resources>
         <Style TargetType="Entry">
             <Setter Property="TextColor" Value="Black"/>
             <Setter Property="PlaceholderColor" Value="DarkGray"/>
-            <Setter Property="WidthRequest" Value="300"/>
+            <Setter Property="WidthRequest" Value="270"/>
             <Setter Property="FontSize" Value="Subtitle"/>
+            <Setter Property="BackgroundColor" Value="White"/>
         </Style>
         <Style TargetType="{x:Type Image}" x:Key="IconForEntryStyle">
             <Setter Property="HeightRequest" Value="30"/>
@@ -31,7 +33,7 @@
                     <ActivityIndicator Color="DarkViolet" IsRunning="{Binding IsRunIndicator}" HorizontalOptions="Center" VerticalOptions="Center"/>
                 </xctk:StateView>
             </xctk:StateLayout.StateViews>
-            <Frame HasShadow="True" Padding="12" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="20">
+            <Frame HasShadow="True" Padding="12" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="20" BackgroundColor="White">
                 <StackLayout>
                     <Image Source="logo.png" HeightRequest="180"/>
                     <StackLayout Orientation="Horizontal" IsVisible="{Binding IsVisibleRegisterControls}">
@@ -48,26 +50,27 @@
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" IsVisible="{Binding IsVisibleRegisterControls}">
                         <Image Source="phone.png" Style="{StaticResource IconForEntryStyle}"/>
-                        <Entry Text="{Binding Phone, Mode=OneWayToSource}" Placeholder="Номер телефона"/>
+                        <Entry Text="{Binding Phone, Mode=OneWayToSource}" Placeholder="Номер телефона" Keyboard="Numeric"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" IsVisible="{Binding IsVisibleRegisterControls}">
                         <Image Source="group.png" Style="{StaticResource IconForEntryStyle}"/>
-                        <Picker SelectedItem="{Binding UserRole}" TextColor="Black" HorizontalOptions="FillAndExpand" FontSize="Subtitle">
+                        <Picker SelectedItem="{Binding UserRole}" TextColor="Black" HorizontalOptions="FillAndExpand" FontSize="Subtitle" BackgroundColor="White">
                             <Picker.Items>
                                 <x:String>Пользователь</x:String>
+                                <x:String>Работник</x:String>
                                 <x:String>Салон</x:String>
                             </Picker.Items>
                         </Picker>
                     </StackLayout>
-                    <Button Text="{Binding AuthButtonText}" CornerRadius="10" FontAttributes="Bold" BackgroundColor="DarkViolet" FontSize="Large" Command="{Binding AuthRegClick}" Margin="0,10,0,0"/>
-                    <Label Text="{Binding ChangeTypeAuthButtonText}" FontAttributes="Bold" FontSize="Large" TextColor="DarkBlue" HorizontalTextAlignment="Center" Margin="10">
+                    <Button Text="{Binding AuthButtonText}" CornerRadius="10" FontAttributes="Bold" BackgroundColor="DarkViolet" FontSize="Large" Command="{Binding AuthRegClick}" Margin="0,10,0,0" TextColor="White" />
+                    <Label Text="{Binding ChangeTypeAuthButtonText}" FontAttributes="Bold" FontSize="Medium" TextColor="DarkBlue" HorizontalTextAlignment="Center" Margin="10">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ChangeTypeAuthorization}"/>
                         </Label.GestureRecognizers>
                     </Label>
-                    <Label Text="Восстановить пароль" IsVisible="{Binding IsVisibleRegisterControls, Converter={StaticResource InverseBoolConverter}}" FontAttributes="Bold" FontSize="Large" TextColor="DarkBlue" HorizontalTextAlignment="Center" Margin="10,2,10,10">
+                    <Label Text="Восстановить пароль" IsVisible="{Binding IsVisibleRegisterControls, Converter={StaticResource InverseBoolConverter}}" FontAttributes="Bold" FontSize="Medium" TextColor="DarkBlue" HorizontalTextAlignment="Center" Margin="10,2,10,10">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ForgetPassword}"/>
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>

@@ -116,6 +116,30 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\email.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\email.imageset\email.png" />
+    <ImageAsset Include="Assets.xcassets\email.imageset\email-1.png" />
+    <ImageAsset Include="Assets.xcassets\email.imageset\email-2.png" />
+    <ImageAsset Include="Assets.xcassets\group.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\group.imageset\group.png" />
+    <ImageAsset Include="Assets.xcassets\group.imageset\group-1.png" />
+    <ImageAsset Include="Assets.xcassets\group.imageset\group-2.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-1.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-2.png" />
+    <ImageAsset Include="Assets.xcassets\password.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\password.imageset\password.png" />
+    <ImageAsset Include="Assets.xcassets\password.imageset\password-1.png" />
+    <ImageAsset Include="Assets.xcassets\password.imageset\password-2.png" />
+    <ImageAsset Include="Assets.xcassets\phone.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\phone.imageset\phone.png" />
+    <ImageAsset Include="Assets.xcassets\phone.imageset\phone-1.png" />
+    <ImageAsset Include="Assets.xcassets\phone.imageset\phone-2.png" />
+    <ImageAsset Include="Assets.xcassets\user.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\user.imageset\user.png" />
+    <ImageAsset Include="Assets.xcassets\user.imageset\user-1.png" />
+    <ImageAsset Include="Assets.xcassets\user.imageset\user-2.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -135,5 +159,13 @@
       <Project>{EF1A8C5B-EA22-4C54-BA37-E741C01ECE32}</Project>
       <Name>Beauty</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\email.imageset\" />
+    <Folder Include="Assets.xcassets\group.imageset\" />
+    <Folder Include="Assets.xcassets\logo.imageset\" />
+    <Folder Include="Assets.xcassets\password.imageset\" />
+    <Folder Include="Assets.xcassets\phone.imageset\" />
+    <Folder Include="Assets.xcassets\user.imageset\" />
   </ItemGroup>
 </Project>

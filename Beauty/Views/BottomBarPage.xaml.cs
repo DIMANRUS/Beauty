@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace Beauty.Views
 {
-    public partial class HomePage : ContentPage
+    public partial class BottomBarPage : Shell
     {
-        public HomePage()
+        public BottomBarPage()
         {
             InitializeComponent();
         }

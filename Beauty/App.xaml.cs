@@ -16,7 +16,7 @@ namespace Beauty
             var task = Task.Factory.StartNew(async()
                 => userId = await SecureStorage.GetAsync("user"));
             task.Wait();
-            MainPage = new NavigationPage((userId is null) ? new AuthPage() : new HomePage());
+            MainPage = new NavigationPage((userId is null) ? new AuthPage() : new BottomBarPage());
         }
 
         protected override void OnStart()

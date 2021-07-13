@@ -27,27 +27,31 @@ namespace Beauty.ViewModels
                     NotifyPropertyChanged(nameof(CurrentState));
                     HttpResponseMessage result = null;
                     using (var httpClient = new HttpClient())
+                    {
                         if (IsVisibleRegisterControls)
+                        {
                             if (_userName?.Length >= 2 && _phone?.Length >= 10)
                                 result = await Registration(httpClient);
+                        }
                         else
                             result = await Authorization(httpClient);
-                    if (result.StatusCode == HttpStatusCode.OK && result is not null)
-                    {
-                        await SecureStorage.SetAsync("user", await result.Content.ReadAsStringAsync());
-                        await _page.Navigation.PushModalAsync(new HomePage(), true);
-                    }
-                    else
-                    {
-                        _layoutState = LayoutState.None;
-                        NotifyPropertyChanged(nameof(CurrentState));
-                        await _page.DisplayAlert($"Ошибка", $"Ошибка входа, обратитесь в поддержку или попробуйте позже. Также проверьте правильность введённых данных.", "OK");
+                        if (result.StatusCode == HttpStatusCode.OK && result is not null)
+                        {
+                            await SecureStorage.SetAsync("user", await result.Content.ReadAsStringAsync());
+                            await _page.Navigation.PushModalAsync(new BottomBarPage(), true);
+                        }
+                        else
+                        {
+                            _layoutState = LayoutState.None;
+                            NotifyPropertyChanged(nameof(CurrentState));
+                            await _page.DisplayAlert($"Ошибка", $"Ошибка входа, обратитесь в поддержку или попробуйте позже. Также проверьте правильность введённых данных.", "OK");
+                        }
                     }
                 }
                 else
                     await _page.DisplayAlert("Ошибка", "Заполните все необходимые поля", "OK");
             });
-            ChangeTypeAuthorization = new Command(async () =>
+            ChangeTypeAuthorization = new Command(() =>
             {
                 IsVisibleRegisterControls = !IsVisibleRegisterControls;
                 if (IsVisibleRegisterControls)
@@ -62,15 +66,16 @@ namespace Beauty.ViewModels
                 }
                 NotifyPropertyChanged(nameof(IsVisibleRegisterControls));
             });
-            ForgetPassword = new Command(async()=> {
-                if(_email.Length > 3)
+            ForgetPassword = new Command(async () =>
+            {
+                if (_email?.Length > 3)
                 {
                     _layoutState = LayoutState.Loading;
                     NotifyPropertyChanged(nameof(CurrentState));
                     using (var httpClient = new HttpClient())
                     {
                         var result = await httpClient.GetAsync($"https://api.beauty.dimanrus.ru/api/forget{_email}");
-                        if(result.StatusCode is HttpStatusCode.OK)
+                        if (result.StatusCode is HttpStatusCode.OK)
                             await _page.DisplayAlert("Успешно", "Письмо с восстановлением пароля отправлено на вашу почту", "OK");
                         else
                             await _page.DisplayAlert("Ошибка", "Пользователь с такой почтой не найден", "OK");
@@ -127,9 +132,12 @@ namespace Beauty.ViewModels
                 Password = _password,
                 Phone = _phone,
                 UserName = _userName,
-                Role = UserRole switch {
+                Role = UserRole switch
+                {
                     "Пользователь" => "User",
-                    "Салон" => "Salon"
+                    "Салон" => "Salon",
+                    "Работник"=> "Worker",
+                    _ => "User"
                 }
             };
             var content = new StringContent(JsonSerializer.Serialize(loginModelRequest), Encoding.UTF8, "application/json");
