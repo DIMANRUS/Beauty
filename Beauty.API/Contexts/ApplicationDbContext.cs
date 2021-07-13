@@ -11,7 +11,8 @@ namespace Beauty.API.Contexts {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole[] {
                 new IdentityRole("Admin"){ NormalizedName = "ADMIN"},
-                new IdentityRole("User"){ NormalizedName = "USER"}
+                new IdentityRole("User"){ NormalizedName = "USER"},
+                new IdentityRole("Salon"){NormalizedName = "SALON"}
             });
         }
     }

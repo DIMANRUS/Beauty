@@ -15,7 +15,7 @@ namespace Beauty.API.Controllers {
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegistrationModelRequest registrationModel) {
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid && registrationModel.Role is not "Admin") {
                 var result = await _userService.Register(registrationModel);
                 if (result.IsSuccess)
                     return Ok(result.Message);
