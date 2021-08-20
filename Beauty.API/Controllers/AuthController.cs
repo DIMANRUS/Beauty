@@ -6,9 +6,9 @@ using Beauty.API.ViewModels;
 using Beauty.API.Responses;
 
 namespace Beauty.API.Controllers {
-    [Route("api/[controller]")]
+    [Route("/[controller]")]
     [ApiController]
-    public class AuthController : Controller {
+    public class AuthController : ControllerBase {
         public IUserService _userService;
         public AuthController(IUserService userService)
             => _userService = userService;

@@ -10,7 +10,7 @@ namespace Beauty.Pages
         public AuthPage()
         {
             InitializeComponent();
-            Page.BindingContext = new AuthPageVM(Page);
+            page.BindingContext = new AuthPageVM();
         }
     }
 }

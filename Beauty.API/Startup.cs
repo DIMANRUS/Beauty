@@ -23,7 +23,9 @@ namespace Beauty.API {
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(options
                 => options.UseSqlServer("Data Source=37.140.192.100;Initial Catalog=u1304518_beauty;User ID=u1304518_dimanrusdev;Password=NetDevMicrosoft33@;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
-            services.AddIdentity<User, IdentityRole>(options =>{
+            //services.AddDbContext<ApplicationDbContext>(options
+            //      => options.UseSqlServer(@"Data Source=DIMANRUS\SQLEXPRESS;Initial Catalog=Beauty;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+            services.AddIdentity<User, IdentityRole>(options => {
                 options.User.AllowedUserNameCharacters = "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ1234567890@.!qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
             }).AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()

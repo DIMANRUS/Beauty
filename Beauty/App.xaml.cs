@@ -14,8 +14,8 @@ namespace Beauty
             InitializeComponent();
             Application.Current.UserAppTheme = OSAppTheme.Light;
             string userId = "";
-            var task = Task.Factory.StartNew(async()
-                => userId = await SecureStorage.GetAsync("user"));
+            var task = Task.Factory.StartNew(async ()
+                => userId = await SecureStorage.GetAsync("UserToken"));
             task.Wait();
             MainPage = (userId is null) ? new AuthPage() : new BottomBarPage();
         }

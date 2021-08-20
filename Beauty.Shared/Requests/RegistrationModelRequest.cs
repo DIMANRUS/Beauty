@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Beauty.Shared.Requests {
     public class RegistrationModelRequest {
@@ -18,5 +19,9 @@ namespace Beauty.Shared.Requests {
         public string Password { get; set; }
         [Required]
         public string Role { get; set; }
+        [StringLength(50, MinimumLength = 3)]
+        public string Address { get; set; }
+        public byte[] Photo { get; set; }
+        public bool IsSelfEmployed { get; set; }
     }
 }

@@ -16,8 +16,68 @@ namespace Beauty.API.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.7")
+                .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Beauty.API.Models.Service", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ServiceName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id");
+
+                    b.ToTable("Services");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ServiceName = "Стрижка"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ServiceName = "Маникюр"
+                        });
+                });
+
+            modelBuilder.Entity("Beauty.API.Models.ServiceWorker", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SalePercent")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServiceId")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan>("Time")
+                        .HasColumnType("time");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServiceId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ServicesWorkers");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -48,29 +108,29 @@ namespace Beauty.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bd3b961f-c564-4c37-a1f2-c121fc4c1f05",
-                            ConcurrencyStamp = "6d76ab59-8be2-4d56-8cfb-c2357aea7e4d",
+                            Id = "bc349f7c-4128-4d25-8d86-584edc567f8a",
+                            ConcurrencyStamp = "4f512034-0900-4f72-a85c-02175f0dac1b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "b850554e-cc3d-40c0-aa90-09883aab0ab5",
-                            ConcurrencyStamp = "c742a9a3-1bb2-4fbb-8f32-1629c3a05f91",
+                            Id = "0bb8bdc9-d0f6-4264-bcae-e52cf1979c9f",
+                            ConcurrencyStamp = "73511554-b06f-419a-8a8a-8ae653d37886",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "516865d0-6048-48c6-9495-4dd5b12968f2",
-                            ConcurrencyStamp = "88f79133-cc25-4b80-95e9-6367c0199140",
+                            Id = "49577823-b869-471e-ae1d-678a6572fd03",
+                            ConcurrencyStamp = "b99756c3-1a3e-41fd-93cc-76d6bb5490a4",
                             Name = "Salon",
                             NormalizedName = "SALON"
                         },
                         new
                         {
-                            Id = "5e0174c5-28fb-4248-85a2-83c28efe8511",
-                            ConcurrencyStamp = "a2fada6d-3820-4848-b031-4be393251092",
+                            Id = "d4edf06c-875b-4be3-a6ec-40911d83a857",
+                            ConcurrencyStamp = "c8e5d2a1-7e39-485b-b46d-47a6f3513c4e",
                             Name = "Worker",
                             NormalizedName = "WORKER"
                         });
@@ -255,7 +315,33 @@ namespace Beauty.API.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsSelfEmployed")
+                        .HasColumnType("bit");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("varbinary(max)");
+
                     b.HasDiscriminator().HasValue("User");
+                });
+
+            modelBuilder.Entity("Beauty.API.Models.ServiceWorker", b =>
+                {
+                    b.HasOne("Beauty.API.Models.Service", "Service")
+                        .WithMany("ServicesWorkers")
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Beauty.API.Models.User", "User")
+                        .WithMany("ServicesWorkers")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Service");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -307,6 +393,16 @@ namespace Beauty.API.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Beauty.API.Models.Service", b =>
+                {
+                    b.Navigation("ServicesWorkers");
+                });
+
+            modelBuilder.Entity("Beauty.API.Models.User", b =>
+                {
+                    b.Navigation("ServicesWorkers");
                 });
 #pragma warning restore 612, 618
         }

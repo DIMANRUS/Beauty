@@ -35,7 +35,8 @@ namespace Beauty.API.Services {
             var claims = new[] {
                             new Claim(ClaimTypes.Email, user.Email),
                             new Claim(ClaimTypes.NameIdentifier, user.Id),
-                            new Claim(ClaimTypes.Role, role.First())
+                            new Claim(ClaimTypes.Role, role.First()),
+                            new Claim(ClaimTypes.Name, user.UserName)
                         };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["AuthSettings:Key"]));
@@ -67,12 +68,15 @@ namespace Beauty.API.Services {
             if (registrationModel is not null) {
                 var users = await _applicationDbContext.Users.Where(u => u.Email == registrationModel.Email).ToListAsync();
                 if (users.Count == 0) {
-                    var role = await _roleManager.FindByNameAsync(registrationModel.Role);
+                    var role = await _roleManager.FindByNameAsync(registrationModel.Role.ToUpper());
                     if (role is not null) {
                         var validateUser = new User() {
                             PhoneNumber = registrationModel.Phone,
                             UserName = registrationModel.UserName,
                             Email = registrationModel.Email,
+                            Address = registrationModel?.Address,
+                            Photo = registrationModel.Photo,
+                            IsSelfEmployed = registrationModel.IsSelfEmployed
                         };
                         var result = await _userManager.CreateAsync(validateUser, registrationModel.Password);
                         if (result.Succeeded) {

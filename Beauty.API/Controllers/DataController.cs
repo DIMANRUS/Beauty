@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace Beauty.API.Controllers {
-    [Route("api/[controller]")]
+    [Route("/[controller]")]
     [ApiController]
     [Authorize(Roles = "User")]
     public class DataController : ControllerBase {

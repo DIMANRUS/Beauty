@@ -190,34 +190,62 @@
     <ImageAsset Include="Assets.xcassets\user.imageset\user-2.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\calendar.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar.png" />
-    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar-1.png" />
-    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar-2.png" />
-    <ImageAsset Include="Assets.xcassets\sale.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\sale.imageset\sale.png" />
-    <ImageAsset Include="Assets.xcassets\sale.imageset\sale-1.png" />
-    <ImageAsset Include="Assets.xcassets\sale.imageset\sale-2.png" />
-    <ImageAsset Include="Assets.xcassets\statistic.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\statistic.imageset\statistic.png" />
-    <ImageAsset Include="Assets.xcassets\statistic.imageset\statistic-1.png" />
-    <ImageAsset Include="Assets.xcassets\statistic.imageset\statistic-2.png" />
-    <ImageAsset Include="Assets.xcassets\chat.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\chat.imageset\chat.png" />
-    <ImageAsset Include="Assets.xcassets\chat.imageset\chat-1.png" />
-    <ImageAsset Include="Assets.xcassets\chat.imageset\chat-2.png" />
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sale.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sale.imageset\sale.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sale.imageset\sale-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sale.imageset\sale-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\statistic.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\statistic.imageset\statistic.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\statistic.imageset\statistic-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\statistic.imageset\statistic-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chat.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chat.imageset\chat.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chat.imageset\chat-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chat.imageset\chat-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -227,15 +255,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets.xcassets\calendar.imageset\" />
+    <Folder Include="Assets.xcassets\chat.imageset\" />
     <Folder Include="Assets.xcassets\email.imageset\" />
     <Folder Include="Assets.xcassets\group.imageset\" />
     <Folder Include="Assets.xcassets\logo.imageset\" />
     <Folder Include="Assets.xcassets\password.imageset\" />
     <Folder Include="Assets.xcassets\phone.imageset\" />
-    <Folder Include="Assets.xcassets\user.imageset\" />
-    <Folder Include="Assets.xcassets\calendar.imageset\" />
     <Folder Include="Assets.xcassets\sale.imageset\" />
     <Folder Include="Assets.xcassets\statistic.imageset\" />
-    <Folder Include="Assets.xcassets\chat.imageset\" />
+    <Folder Include="Assets.xcassets\user.imageset\" />
   </ItemGroup>
 </Project>

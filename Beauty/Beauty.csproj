@@ -27,7 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="System.Text.Json" Version="5.0.2" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
   </ItemGroup>
@@ -37,13 +37,33 @@
     <None Remove="ViewModels\Shared\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-    <Folder Include="ViewModels\Shared\" />
-    <Folder Include="Converters\" />
-    <Folder Include="Pages\" />
-    <Folder Include="Pages\BarPages\" />
+    <ProjectReference Include="..\Beauty.Shared\Beauty.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Beauty.Shared\Beauty.Shared.csproj" />
+    <Folder Include="ViewModels\BarPagesVM\User\" />
+    <Folder Include="ViewModels\BarPagesVM\Salon\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\BarPages\MasterSalon\MSProfile.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\BarPages\MasterSalon\ServicesAndSales.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\BarPages\MasterSalon\Statistic.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\BarPages\Salon\Workers.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\BarPages\User\SearchServicePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\BarPages\User\UserProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\BarPages\User\UserServices.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

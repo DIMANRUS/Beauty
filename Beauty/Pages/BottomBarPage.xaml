@@ -1,27 +1,60 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Beauty.Pages.BottomBarPage"
-    xmlns:pages="clr-namespace:Beauty.Pages"
-    xmlns:barpages="clr-namespace:Beauty.Pages.BarPages"
-    Shell.NavBarHasShadow="True"
-    Shell.TabBarTitleColor="DarkViolet">
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="Beauty.Pages.BottomBarPage"
+       xmlns:pages="clr-namespace:Beauty.Pages"
+       Shell.NavBarIsVisible="False"
+       Shell.PresentationMode="Animated"
+       xmlns:vm="clr-namespace:Beauty.ViewModels"
+       xmlns:converters="clr-namespace:Beauty.Converters"
+       xmlns:userPages="clr-namespace:Beauty.Pages.BarPages.User"
+       xmlns:masterSalonPages="clr-namespace:Beauty.Pages.BarPages.MasterSalon"
+       xmlns:salonPages="clr-namespace:Beauty.Pages.BarPages.Salon">
+    <Shell.BindingContext>
+        <vm:BottomBarPageVM />
+    </Shell.BindingContext>
+    <Shell.Resources>
+        <converters:UserRoleConverter x:Key="UserRoleConverter" />
+        <x:String x:Key="User">User</x:String>
+        <x:String x:Key="MasterSalon">MasterSalon</x:String>
+        <x:String x:Key="Salon">Salon</x:String>
+    </Shell.Resources>
     <TabBar>
-        <ShellContent Title=""
-                     Icon="calendar.png"
-                     ContentTemplate="{DataTemplate barpages:CalendarPage}"/>
-        <ShellContent Title=""
-                      Icon="statistic.png"
-                     ContentTemplate="{DataTemplate barpages:StatisticPage}" />
-        <ShellContent Title=""
-                      Icon="sale.png"
-                     ContentTemplate="{DataTemplate barpages:SalePage}" />
-        <ShellContent Title=""
-                     Icon="chat.png"
-                     ContentTemplate="{DataTemplate barpages:ChatPage}" />
-        <ShellContent Title=""
+        <ShellContent Title="Поиск"
+                      Icon="calendar.png"
+                      ContentTemplate="{DataTemplate userPages:SearchServicePage}"
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource User}, Mode=OneWay}" />
+        <ShellContent Title="Запись"
+                      Icon="clock.png"
+                      ContentTemplate="{DataTemplate userPages:UserServices}"
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource User}, Mode=OneWay}" />
+        <ShellContent Title="Профиль"
                       Icon="user.png"
-                     ContentTemplate="{DataTemplate barpages:UserPage}" />
+                      ContentTemplate="{DataTemplate userPages:UserProfilePage}"
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource User}, Mode=OneWay}" />
+        <ShellContent Title="Календарь"
+                      Icon="user.png"
+                      ContentTemplate="{DataTemplate userPages:UserProfilePage}"
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource MasterSalon}, Mode=OneWay}" />
+        <ShellContent Title="Календарь"
+                      Icon="user.png"
+                      ContentTemplate="{DataTemplate masterSalonPages:CalendarPage}"
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource MasterSalon}, Mode=OneWay}" />
+        <ShellContent Title="Услуги"
+                      Icon="user.png"
+                      ContentTemplate="{DataTemplate masterSalonPages:ServicesAndSales}"
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource MasterSalon}, Mode=OneWay}" />
+        <ShellContent Title="Статистика"
+                      Icon="user.png"
+                      ContentTemplate="{DataTemplate masterSalonPages:Statistic}"
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource MasterSalon}, Mode=OneWay}" />
+        <ShellContent Title="Мастера"
+                      Icon="user.png"
+                      ContentTemplate="{DataTemplate salonPages:Workers}"
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource Salon}, Mode=OneWay}" />
+        <ShellContent Title="Профиль"
+                      Icon="user.png"
+                      ContentTemplate="{DataTemplate masterSalonPages:MSProfile}"
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource MasterSalon}, Mode=OneWay}" />
     </TabBar>
 </Shell>
