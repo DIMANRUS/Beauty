@@ -26,10 +26,10 @@
     <None Remove="Pages\BarPages\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="System.Text.Json" Version="5.0.2" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -40,13 +40,15 @@
     <ProjectReference Include="..\Beauty.Shared\Beauty.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\BarPagesVM\User\" />
     <Folder Include="ViewModels\BarPagesVM\Salon\" />
+    <Folder Include="ViewModels\BarPagesVM\User\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Pages\BarPages\MasterSalon\MSProfile.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <Compile Update="Pages\BarPages\All\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Update="Pages\BarPages\MasterSalon\ServicesAndSales.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -59,10 +61,13 @@
     <EmbeddedResource Update="Pages\BarPages\User\SearchServicePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\BarPages\User\UserProfilePage.xaml">
+    <EmbeddedResource Update="Pages\BarPages\All\ProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\BarPages\User\UserServices.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoaderView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

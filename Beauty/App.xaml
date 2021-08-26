@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Beauty.App">
+             x:Class="Beauty.App"
+             xmlns:xctk="http://xamarin.com/schemas/2020/toolkit">
     <Application.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="TextColor"
@@ -15,6 +16,10 @@
                     Value="Title" />
             <Setter Property="Margin"
                     Value="10" />
+        </Style>
+        <Style TargetType="{x:Type xctk:StateView}">
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="VerticalOptions" Value="FillAndExpand"/>
         </Style>
     </Application.Resources>
 </Application>

@@ -9,7 +9,8 @@
        xmlns:converters="clr-namespace:Beauty.Converters"
        xmlns:userPages="clr-namespace:Beauty.Pages.BarPages.User"
        xmlns:masterSalonPages="clr-namespace:Beauty.Pages.BarPages.MasterSalon"
-       xmlns:salonPages="clr-namespace:Beauty.Pages.BarPages.Salon">
+       xmlns:salonPages="clr-namespace:Beauty.Pages.BarPages.Salon"
+       xmlns:allPages="clr-namespace:Beauty.Pages.BarPages.All">
     <Shell.BindingContext>
         <vm:BottomBarPageVM />
     </Shell.BindingContext>
@@ -18,6 +19,7 @@
         <x:String x:Key="User">User</x:String>
         <x:String x:Key="MasterSalon">MasterSalon</x:String>
         <x:String x:Key="Salon">Salon</x:String>
+        <x:String x:Key="All">All</x:String>
     </Shell.Resources>
     <TabBar>
         <ShellContent Title="Поиск"
@@ -28,14 +30,6 @@
                       Icon="clock.png"
                       ContentTemplate="{DataTemplate userPages:UserServices}"
                       IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource User}, Mode=OneWay}" />
-        <ShellContent Title="Профиль"
-                      Icon="user.png"
-                      ContentTemplate="{DataTemplate userPages:UserProfilePage}"
-                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource User}, Mode=OneWay}" />
-        <ShellContent Title="Календарь"
-                      Icon="user.png"
-                      ContentTemplate="{DataTemplate userPages:UserProfilePage}"
-                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource MasterSalon}, Mode=OneWay}" />
         <ShellContent Title="Календарь"
                       Icon="user.png"
                       ContentTemplate="{DataTemplate masterSalonPages:CalendarPage}"
@@ -54,7 +48,7 @@
                       IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource Salon}, Mode=OneWay}" />
         <ShellContent Title="Профиль"
                       Icon="user.png"
-                      ContentTemplate="{DataTemplate masterSalonPages:MSProfile}"
-                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource MasterSalon}, Mode=OneWay}" />
+                      ContentTemplate="{DataTemplate allPages:ProfilePage}"
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource All}, Mode=OneWay}" />
     </TabBar>
 </Shell>

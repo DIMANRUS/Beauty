@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Beauty.Pages.BarPages.All.ProfilePage"
+             xmlns:VMAll="clr-namespace:Beauty.ViewModels.BarPagesVM.All"
+             xmlns:xctk="http://xamarin.com/schemas/2020/toolkit">
+    <ContentPage.Behaviors>
+        <xctk:EventToCommandBehavior EventName="Appearing"
+                                     Command="{Binding PageLoadingCommand}" />
+    </ContentPage.Behaviors>
+    <ContentPage.BindingContext>
+        <VMAll:ProfilePageVM />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Frame CornerRadius="100">
+                        <Image Source="user.png" />
+                    </Frame>
+                    <Label Text="{Binding UserName}" />
+                </StackLayout>
+                <Button Text="Выйти"
+                        VerticalOptions="EndAndExpand"
+                        BackgroundColor="Red"
+                        FontAttributes="Bold"
+                        Command="{Binding ExitCommand}"
+                        CornerRadius="20"
+                        Margin="10"
+                        FontSize="20" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

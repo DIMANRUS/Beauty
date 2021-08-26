@@ -10,7 +10,8 @@ namespace Beauty.ViewModels {
             "Thursday" => " ЧТ",
             "Friday" => " ПТ",
             "Saturday" => " СБ",
-            "Sunday" => " ВС"
+            "Sunday" => " ВС",
+            _ => " ДНИ"
         });
     }
 }

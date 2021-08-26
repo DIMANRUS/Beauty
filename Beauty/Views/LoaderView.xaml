@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Beauty.Views.LoaderView"
+             xmlns:xctk="http://xamarin.com/schemas/2020/toolkit">
+    <ActivityIndicator Color="DarkViolet"
+                       IsRunning="{Binding IsRunIndicator}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+</ContentView>

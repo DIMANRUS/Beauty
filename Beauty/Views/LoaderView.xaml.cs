@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Beauty.Pages.BarPages.User {
+namespace Beauty.Views {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UserProfilePage : ContentPage {
-        public UserProfilePage() {
+    public partial class LoaderView : ContentView {
+        public LoaderView() {
             InitializeComponent();
         }
     }

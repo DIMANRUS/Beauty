@@ -8,7 +8,8 @@
              xmlns:xctk="http://xamarin.com/schemas/2020/toolkit"
              xmlns:converters="clr-namespace:Beauty.Converters"
              x:Name="page"
-             x:DataType="VM:AuthPageVM">
+             x:DataType="VM:AuthPageVM"
+             xmlns:views="clr-namespace:Beauty.Views">
     <ContentPage.Behaviors>
         <xctk:EventToCommandBehavior Command="{Binding OnAppearing}"
                                      EventName="Appearing" />
@@ -46,13 +47,8 @@
         <Grid xctk:StateLayout.CurrentState="{Binding CurrentState}"
               xctk:StateLayout.AnimateStateChanges="true">
             <xctk:StateLayout.StateViews>
-                <xctk:StateView StateKey="Loading"
-                                BackgroundColor="White"
-                                VerticalOptions="FillAndExpand">
-                    <ActivityIndicator Color="DarkViolet"
-                                       IsRunning="{Binding IsRunIndicator}"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center" />
+                <xctk:StateView StateKey="Loading">
+                    <views:LoaderView />
                 </xctk:StateView>
             </xctk:StateLayout.StateViews>
             <Frame HasShadow="True"
@@ -63,7 +59,7 @@
                    BackgroundColor="White">
                 <StackLayout>
                     <Image Source="logo.png"
-                           HeightRequest="180"/>
+                           HeightRequest="180" />
                     <StackLayout Orientation="Horizontal">
                         <Image Source="email.png"
                                Style="{StaticResource IconForEntryStyle}" />

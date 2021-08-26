@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using Xamarin.Forms;
 
 namespace Beauty.Converters {
@@ -11,21 +9,25 @@ namespace Beauty.Converters {
                  "Мастер" => parameter.ToString() switch {
                      "Master" => true,
                      "MasterSalon" => true,
-                     "User" => false
+                     "User" => false,
+                     _ => false
                  },
                  "Салон" => parameter.ToString() switch {
                      "MasterSalon" => true,
                      "Master" => false,
-                     "User" => false
+                     "User" => false,
+                     _ => false
                  },
                  "Пользователь" => parameter.ToString() switch {
                      "MasterSalon" => false,
                      "Master" => false,
-                     "User" => true
+                     "User" => true,
+                     _ => false
                  },
-                 "User" => (parameter.ToString() == "User") ? true : false,
-                 "Master" => (parameter.ToString() == "MasterSalon") ? true : false,
-                 "Salon" => (parameter.ToString() == "MasterSalon" || parameter.ToString() == "Salon") ? true : false
+                 "User" => (parameter.ToString() == "User" || parameter.ToString() == "All") ? true : false,
+                 "Master" => (parameter.ToString() == "MasterSalon" || parameter.ToString() == "All") ? true : false,
+                 "Salon" => (parameter.ToString() == "MasterSalon" || parameter.ToString() == "Salon" || parameter.ToString() == "All") ? true : false,
+                 _ => false
              };
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => "";
