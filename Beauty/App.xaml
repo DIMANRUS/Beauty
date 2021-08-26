@@ -2,7 +2,8 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Beauty.App"
-             xmlns:xctk="http://xamarin.com/schemas/2020/toolkit">
+             xmlns:xctk="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:converters="clr-namespace:Beauty.Converters">
     <Application.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="TextColor"
@@ -21,5 +22,36 @@
             <Setter Property="BackgroundColor" Value="White"/>
             <Setter Property="VerticalOptions" Value="FillAndExpand"/>
         </Style>
+        <Style TargetType="{x:Type Image}"
+               x:Key="IconForEntryStyle">
+            <Setter Property="HeightRequest"
+                    Value="30" />
+            <Setter Property="Margin"
+                    Value="5" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="PlaceholderColor"
+                    Value="DarkGray" />
+            <Setter Property="WidthRequest"
+                    Value="270" />
+            <Setter Property="FontSize"
+                    Value="Subtitle" />
+            <Setter Property="BackgroundColor"
+                    Value="White" />
+        </Style>
+        <ResourceDictionary>
+            <x:String x:Key="User">User</x:String>
+            <x:String x:Key="MasterSalon">MasterSalon</x:String>
+            <x:String x:Key="Salon">Salon</x:String>
+            <x:String x:Key="All">All</x:String>
+            <x:String x:Key="Master">Master</x:String>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converters:NullCheckConverter x:Key="NullCheckConverter" />
+            <converters:UserRoleConverter x:Key="UserRoleConverter" />
+            <converters:SelfEmployedConverter x:Key="SelfEmployedConverter" />
+        </ResourceDictionary>
     </Application.Resources>
+
 </Application>

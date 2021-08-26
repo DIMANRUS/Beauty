@@ -14,12 +14,61 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal"
+                             Margin="15">
                     <Frame CornerRadius="100">
                         <Image Source="user.png" />
                     </Frame>
-                    <Label Text="{Binding UserName}" />
+                    <Label Text="{Binding UserName}"
+                           FontAttributes="Bold"
+                           FontSize="30"
+                           Margin="10" />
                 </StackLayout>
+                <Frame Margin="10" CornerRadius="20" Padding="10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+
+                            <Image Source="user.png"
+                               HeightRequest="25" 
+                               VerticalOptions="StartAndExpand"/>
+                        <Label Grid.Column="1"
+                               Text="Данные"
+                               FontAttributes="Bold"
+                               FontSize="20"
+                               Margin="6,0,0,0" />
+                        </StackLayout>
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="camera.png"
+                                       Style="{StaticResource IconForEntryStyle}" />
+                                <Button Text="Выбрать"
+                                        Command="{Binding OpenFilePicker}"
+                                        WidthRequest="100" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="phone.png"
+                                       Style="{StaticResource IconForEntryStyle}" />
+                                <Entry Text="{Binding Phone}"
+                                       Placeholder="Номер телефона"
+                                       Keyboard="Numeric" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="email.png"
+                                       Style="{StaticResource IconForEntryStyle}" />
+                                <Entry Text="{Binding Email, Converter={StaticResource NullCheckConverter}}"
+                                       Placeholder="Введите почту" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="password.png"
+                                       Style="{StaticResource IconForEntryStyle}" />
+                                <Entry Text="{Binding Password,  Converter={StaticResource NullCheckConverter}}"
+                                       Placeholder="Введите пароль"
+                                       IsPassword="True" />
+                            </StackLayout>
+                            <Button Text="Сохранить" Command="{Binding SaveNewUserData}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
                 <Button Text="Выйти"
                         VerticalOptions="EndAndExpand"
                         BackgroundColor="Red"

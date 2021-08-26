@@ -14,16 +14,9 @@
     <Shell.BindingContext>
         <vm:BottomBarPageVM />
     </Shell.BindingContext>
-    <Shell.Resources>
-        <converters:UserRoleConverter x:Key="UserRoleConverter" />
-        <x:String x:Key="User">User</x:String>
-        <x:String x:Key="MasterSalon">MasterSalon</x:String>
-        <x:String x:Key="Salon">Salon</x:String>
-        <x:String x:Key="All">All</x:String>
-    </Shell.Resources>
     <TabBar>
         <ShellContent Title="Поиск"
-                      Icon="calendar.png"
+                      Icon="search.png"
                       ContentTemplate="{DataTemplate userPages:SearchServicePage}"
                       IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource User}, Mode=OneWay}" />
         <ShellContent Title="Запись"
