@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-using Xamarin.Forms;
-
-namespace Beauty.Pages
-{
-    public partial class BottomBarPage : Shell
-    {
-        public BottomBarPage()
-        {
+namespace Beauty.Pages {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class BottomBarPage : Shell {
+        public BottomBarPage() =>
             InitializeComponent();
-        }
     }
 }
