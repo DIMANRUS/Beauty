@@ -1,6 +1,6 @@
 ﻿using System.Text;
-using Beauty.API.Contexts;
-using Beauty.API.Models;
+using Beauty.EFDataAccessLibrary.Contexts;
+using Beauty.EFDataAccessLibrary.Models;
 using Beauty.API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;

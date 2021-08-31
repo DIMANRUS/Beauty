@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
-namespace Beauty.API.Models {
+namespace Beauty.EFDataAccessLibrary.Models {
     public class User : IdentityUser {
         public string Address { get; set; }
         public byte[] Photo { get; set; }

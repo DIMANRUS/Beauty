@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Beauty.API.Migrations
+namespace Beauty.EFDataAccessLibrary.Migrations
 {
     public partial class AddSoneRoles : Migration
     {

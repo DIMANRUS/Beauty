@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Beauty.API.Models {
+namespace Beauty.EFDataAccessLibrary.Models {
     public class ServiceWorker {
         public int Id { get; set; }
         public string UserId { get; set; }

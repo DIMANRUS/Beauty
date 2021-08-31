@@ -1,12 +1,12 @@
-﻿using Beauty.API.Models;
+﻿using Beauty.EFDataAccessLibrary.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Beauty.API.Contexts {
+namespace Beauty.EFDataAccessLibrary.Contexts {
     public class ApplicationDbContext : IdentityDbContext {
         public ApplicationDbContext(DbContextOptions options) : base(options) { }
-        public DbSet<User> Users { get; set; }
+        public new DbSet<User> Users { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<ServiceWorker> ServicesWorkers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder) {

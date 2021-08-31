@@ -1,5 +1,5 @@
-﻿using Beauty.API.Contexts;
-using Beauty.API.Models;
+﻿using Beauty.EFDataAccessLibrary.Contexts;
+using Beauty.EFDataAccessLibrary.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
