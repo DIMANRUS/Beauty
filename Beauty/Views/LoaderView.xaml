@@ -4,7 +4,7 @@
              x:Class="Beauty.Views.LoaderView"
              xmlns:xctk="http://xamarin.com/schemas/2020/toolkit">
     <ActivityIndicator Color="DarkViolet"
-                       IsRunning="{Binding IsRunIndicator}"
+                       IsRunning="True"
                        HorizontalOptions="Center"
                        VerticalOptions="Center" />
 </ContentView>

@@ -8,10 +8,27 @@ using Xamarin.Essentials;
 using Beauty.Pages;
 using System.IO;
 using System.Threading.Tasks;
+using System.Net.Http;
+using Beauty.Shared.Responses;
+using System.Text.Json;
+using System.Net.Http.Headers;
+using Beauty.Shared.Requests;
+using System.Net;
+using Xamarin.CommunityToolkit.UI.Views;
 
 namespace Beauty.ViewModels.BarPagesVM.All {
     class ProfilePageVM : BaseVM {
         public ProfilePageVM() {
+            Task.Run(async () =>
+            {
+                CurrentState = LayoutState.Loading;
+                HttpClient httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await SecureStorage.GetAsync("UserToken"));
+                var json = await httpClient.GetStringAsync("https://api.beauty.dimanrus.ru/User/GetUser");
+                UserResponse userResponse = JsonSerializer.Deserialize<UserResponse>(json);
+                UserName = userResponse.UserName;
+                CurrentState = LayoutState.None;
+            });
             ExitCommand = new Command(() =>
             {
                 SecureStorage.RemoveAll();
@@ -44,22 +61,49 @@ namespace Beauty.ViewModels.BarPagesVM.All {
             });
             SaveNewUserData = new Command(async () =>
             {
-                if (Photo != null || Email != null || Phone != null || Password != null)
+                CurrentState = LayoutState.Loading;
+                if (CurrentPassword != "")
                 {
-
+                    HttpClient httpClient = new HttpClient();
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await SecureStorage.GetAsync("UserToken"));
+                    var userRequest = new UserRequest()
+                    {
+                        CurrentPassword = CurrentPassword,
+                        NewPassword = NewPassword,
+                        Email = _email,
+                        PhoneNumber = _phone,
+                        Photo = _photo
+                    };
+                    var content = new StringContent(JsonSerializer.Serialize(userRequest), Encoding.UTF8, "application/json");
+                    var result = await httpClient.PostAsync("https://api.beauty.dimanrus.ru/User/UpdateUser", content);
+                    if (result.StatusCode == HttpStatusCode.OK)
+                    {
+                        await SecureStorage.SetAsync("UserEmail", _email);
+                        await _page.DisplayAlert("Успешно", "Данные изменены", "Ок");
+                    } else
+                    {
+                        await _page.DisplayAlert("Ошибка", "Данные не изменены. Ошибка пароля.", "Ок");
+                    }
                 } else
                 {
-                    await _page.DisplayAlert("Ошибка!", "Вы не изменили ни одного поля.", "Закрыть");
+                    await _page.DisplayAlert("Ошибка", "Введите пароль", "Ок");
                 }
+                CurrentState = LayoutState.None;
             });
         }
 
         private Page _page;
-        public string UserName { get; private set; } = "Сорокин Алексей Владимирович"; //
-        public string Phone { get; set; }
-        public string Email { get; set; } = null;
-        public byte[] Photo { get; set; }
-        public string Password { get; set; }
+        public string UserName { get => _userName; private set { _userName = value; NotifyPropertyChanged(); } }
+        public string Phone { get => _phone; set { _phone = value; NotifyPropertyChanged(); } }
+        public string Email { get => _email; set { _email = value; NotifyPropertyChanged(); } }
+        public byte[] Photo { get => _photo; set { _photo = value; NotifyPropertyChanged(); } }
+        public string NewPassword { get; set; }
+        public string CurrentPassword { get; set; }
+
+        private string _userName;
+        private string _phone;
+        private string _email;
+        private byte[] _photo;
 
         public ICommand ExitCommand { get; private set; }
         public ICommand PageLoadingCommand { get; private set; }
@@ -114,10 +158,6 @@ namespace Beauty.ViewModels.BarPagesVM.All {
                     stream.Position = originalPosition;
                 }
             }
-        }
-        async Task UpdateUserData(string token) {
-            await SecureStorage.SetAsync("UserEmail", Email);
-            await SecureStorage.SetAsync("UserToken", token);
         }
     }
 }

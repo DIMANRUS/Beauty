@@ -25,7 +25,6 @@ namespace Beauty.ViewModels {
         //private string _phone = "";
         private string _authButtonText = "Войти";
         private string _changeTypeAuthButtonText = "Зарегистрироваться";
-        private LayoutState _layoutState = LayoutState.None;
         private byte[] Photo;
         //private bool
         public AuthPageVM() {
@@ -34,8 +33,7 @@ namespace Beauty.ViewModels {
             AuthRegClick = new Command(async () => {
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                     if (Email?.Length >= 3 && Password?.Length >= 5) {
-                        _layoutState = LayoutState.Loading;
-                        NotifyPropertyChanged(nameof(CurrentState));
+                        CurrentState = LayoutState.Loading;
                         HttpResponseMessage result = null;
                         using (var httpClient = new HttpClient()) {
                             if (IsVisibleRegisterControls) {
@@ -47,8 +45,7 @@ namespace Beauty.ViewModels {
                                 await SaveUserData(await result.Content.ReadAsStringAsync());
                                 Application.Current.MainPage = new BottomBarPage();
                             } else {
-                                _layoutState = LayoutState.None;
-                                NotifyPropertyChanged(nameof(CurrentState));
+                                CurrentState = LayoutState.None;
                                 await _page.DisplayAlert($"Ошибка", $"Ошибка входа, обратитесь в поддержку или попробуйте позже. Также проверьте правильность введённых данных.", "OK");
                             }
                         }
@@ -70,8 +67,7 @@ namespace Beauty.ViewModels {
             });
             ForgetPassword = new Command(async () => {
                 if (Email?.Length > 3) {
-                    _layoutState = LayoutState.Loading;
-                    NotifyPropertyChanged(nameof(CurrentState));
+                    CurrentState = LayoutState.Loading;
                     using (var httpClient = new HttpClient()) {
                         var result = await httpClient.GetAsync($"https://api.beauty.dimanrus.ru/api/forget{Email}");
                         if (result.StatusCode is HttpStatusCode.OK)
@@ -118,9 +114,6 @@ namespace Beauty.ViewModels {
         public string AuthButtonText { get => _authButtonText; set { _authButtonText = value; NotifyPropertyChanged(); } }
         public string ChangeTypeAuthButtonText { get => _changeTypeAuthButtonText; set { _changeTypeAuthButtonText = value; NotifyPropertyChanged(); } }
 
-        public LayoutState CurrentState { get => _layoutState; private set => _layoutState = value; }
-
-        public bool IsRunIndicator { get => (CurrentState == LayoutState.None) ? false : true; }
         public bool IsVisibleRegisterControls { get; private set; } = false;
         public bool IsSelfEmployed { get; set; }
         //public bool IsVisibleServicesView { get; private set; } = false;
