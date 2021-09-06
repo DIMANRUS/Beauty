@@ -27,6 +27,9 @@ namespace Beauty.ViewModels.BarPagesVM.All {
                 var json = await httpClient.GetStringAsync("https://api.beauty.dimanrus.ru/User/GetUser");
                 UserResponse userResponse = JsonSerializer.Deserialize<UserResponse>(json);
                 UserName = userResponse.UserName;
+                Phone = userResponse.PhoneNumber;
+                Email = userResponse.Email;
+                Photo = userResponse.Photo;
                 CurrentState = LayoutState.None;
             });
             ExitCommand = new Command(() =>
@@ -74,7 +77,8 @@ namespace Beauty.ViewModels.BarPagesVM.All {
                         PhoneNumber = _phone,
                         Photo = _photo
                     };
-                    var content = new StringContent(JsonSerializer.Serialize(userRequest), Encoding.UTF8, "application/json");
+                    string json = JsonSerializer.Serialize(userRequest);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
                     var result = await httpClient.PostAsync("https://api.beauty.dimanrus.ru/User/UpdateUser", content);
                     if (result.StatusCode == HttpStatusCode.OK)
                     {

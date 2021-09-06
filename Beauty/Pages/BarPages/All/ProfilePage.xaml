@@ -68,14 +68,14 @@
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="password.png"
                                        Style="{StaticResource IconForEntryStyle}" />
-                                    <Entry Text="{Binding NewPassword, Mode=OneWayToSource, Converter={StaticResource NullCheckConverter}}"
+                                    <Entry Text="{Binding CurrentPassword, Mode=OneWayToSource, Converter={StaticResource NullCheckConverter}}"
                                        Placeholder="Введите старый пароль (обязательно)"
                                        IsPassword="True" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="password.png"
                                        Style="{StaticResource IconForEntryStyle}" />
-                                    <Entry Text="{Binding CurrentPassword, Mode=OneWayToSource, Converter={StaticResource NullCheckConverter}}"
+                                    <Entry Text="{Binding NewPassword, Mode=OneWayToSource, Converter={StaticResource NullCheckConverter}}"
                                        Placeholder="Введите новый пароль"
                                        IsPassword="True" />
                                 </StackLayout>

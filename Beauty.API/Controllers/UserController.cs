@@ -31,7 +31,11 @@ namespace Beauty.API.Controllers {
             var id = new TokenHelper(accessToken).GetNameIdentifer(); //Select(c => new{ c.Id, c.Email, c.PhoneNumber, c.UserName, c.Photo })
             var user = await _db.Users.SingleOrDefaultAsync(record => record.Id == id);
             if (user is not null)
-                return Ok(AutoMaperHelper<User, UserResponse>.GetDestination(user));
+            {
+                UserResponse userResponse = AutoMaperHelper<User, UserResponse>.GetDestination(user);
+                userResponse.Email = await _userManager.GetEmailAsync(user);
+                return Ok(userResponse);
+            }
             return BadRequest("Not User");
         }
         [HttpPost]
@@ -51,7 +55,10 @@ namespace Beauty.API.Controllers {
                         if (userRequest.NewPassword != null)
                             await _userManager.ChangePasswordAsync(user,userRequest.CurrentPassword, userRequest.NewPassword);
                         if (userRequest.Email != null)
-                            user.Email = userRequest.Email;
+                        {
+                            string tokenChangeEmail = await _userManager.GenerateChangeEmailTokenAsync(user, userRequest.Email);
+                            await _userManager.ChangeEmailAsync(user, userRequest.Email, tokenChangeEmail);
+                        }
                         if (userRequest.PhoneNumber != null)
                             user.PhoneNumber = userRequest.PhoneNumber;
                         if (userRequest.Photo != null)
