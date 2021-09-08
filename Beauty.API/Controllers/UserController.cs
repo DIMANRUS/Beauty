@@ -12,6 +12,7 @@ using Beauty.Shared.Helpers;
 using Beauty.Shared.Requests;
 using Beauty.API.Interfaces;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.Collections.Generic;
 
 namespace Beauty.API.Controllers {
     [Route("/[controller]/[action]")]

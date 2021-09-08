@@ -9,6 +9,7 @@ namespace Beauty.EFDataAccessLibrary.Contexts {
         public new DbSet<User> Users { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<ServiceWorker> ServicesWorkers { get; set; }
+        public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole[] {
                 new IdentityRole("Admin"){ NormalizedName = "ADMIN"},

@@ -2,15 +2,15 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Beauty.EFDataAccessLibrary.Models {
-    public class ServiceWorker {
+    public class Order {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public int WorkerId { get; set; }
+        public User Worker { get; set; }
         public int UserId { get; set; }
-        public User User { get; set; }
-        public int ServiceId { get; set; }
-        public Service Service { get; set; }
-        public TimeSpan Time { get; set; }
+        public int ServiceWorkerId { get; set; }
+        public ServiceWorker ServiceWorker { get; set; }
         public decimal Price { get; set; }
-        public int SalePercent { get; set; } = 0;
+        public DateTime Start { get; set; }
     }
 }

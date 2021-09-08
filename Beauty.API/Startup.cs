@@ -22,7 +22,7 @@ namespace Beauty.API {
             services.AddRazorPages();
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(options
-                => options.UseSqlServer("Data Source=37.140.192.100;Initial Catalog=u1304518_beauty;User ID=u1304518_dimanrusdev;Password=NetDevMicrosoft33@;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+                => options.UseSqlServer("Data Source=37.140.192.100;Initial Catalog=u1304518_beauty;User ID=u1304518_dimanrusdev;Password=NetDevMicrosoft33@;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False", e=>e.MigrationsAssembly("Beauty.EFDataAccessLibrary")));
             //services.AddDbContext<ApplicationDbContext>(options
             //      => options.UseSqlServer(@"Data Source=DIMANRUS\SQLEXPRESS;Initial Catalog=Beauty;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
             services.AddIdentity<User, IdentityRole>(options => {
