@@ -31,7 +31,7 @@ namespace Beauty.API.Services {
             _mailService = mailService;
         }
         private async Task<string> GetToken(User user) {
-            var role = await _userManager.GetRolesAsync(user);
+            var role = await _userManager.GetRolesAsync(await _userManager.FindByIdAsync(user.Id));
             var claims = new[] {
                             new Claim(ClaimTypes.Email, user.Email),
                             new Claim(ClaimTypes.NameIdentifier, user.Id),

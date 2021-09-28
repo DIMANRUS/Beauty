@@ -4,14 +4,16 @@ using Beauty.EFDataAccessLibrary.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Beauty.EFDataAccessLibrary.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210915131225_ChangeTypeUserPropertyInOrder")]
+    partial class ChangeTypeUserPropertyInOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -171,36 +173,6 @@ namespace Beauty.EFDataAccessLibrary.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "d234c1d5-d834-4e98-b82d-8029091448d4",
-                            ConcurrencyStamp = "4de02e77-2e1e-4b99-85c1-3cc75dee34ad",
-                            Name = "ADMIN",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "c39a8472-a73e-43b3-a3d0-e4fd8bfdff3f",
-                            ConcurrencyStamp = "486833e5-b156-4c15-83de-9bb298f5bab3",
-                            Name = "USER",
-                            NormalizedName = "USER"
-                        },
-                        new
-                        {
-                            Id = "73de23f0-a6bd-43d8-b411-fc7612e1556e",
-                            ConcurrencyStamp = "0bfe9d0f-4b7e-4c0b-99d8-3ee538e32b6b",
-                            Name = "SALON",
-                            NormalizedName = "SALON"
-                        },
-                        new
-                        {
-                            Id = "73a1c2e1-28b0-4531-9561-32a813c49354",
-                            ConcurrencyStamp = "2fc0b3ad-4b96-4e1f-8429-8ef2a269a6c8",
-                            Name = "WORKER",
-                            NormalizedName = "WORKER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

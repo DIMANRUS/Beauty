@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\BarPagesVM\Salon\" />
-    <Folder Include="ViewModels\BarPagesVM\User\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Pages\BarPages\All\ProfilePage.xaml.cs">
@@ -66,6 +65,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\BarPages\User\UserServices.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EmptyView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LoaderView.xaml">

@@ -4,14 +4,16 @@ using Beauty.EFDataAccessLibrary.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Beauty.EFDataAccessLibrary.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210913082056_AddServiceCategory")]
+    partial class AddServiceCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,17 +31,14 @@ namespace Beauty.EFDataAccessLibrary.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("ServiceWorkerId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ServiceWorkerId1")
+                    b.Property<int>("ServiceWorkerId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Start")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<int>("WorkerId")
                         .HasColumnType("int");
@@ -49,7 +48,7 @@ namespace Beauty.EFDataAccessLibrary.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ServiceWorkerId1");
+                    b.HasIndex("ServiceWorkerId");
 
                     b.HasIndex("WorkerId1");
 
@@ -175,30 +174,30 @@ namespace Beauty.EFDataAccessLibrary.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d234c1d5-d834-4e98-b82d-8029091448d4",
-                            ConcurrencyStamp = "4de02e77-2e1e-4b99-85c1-3cc75dee34ad",
-                            Name = "ADMIN",
+                            Id = "b791f6c4-d594-43f2-bb99-fdce905ffa9b",
+                            ConcurrencyStamp = "ca9579c0-3026-41e1-8d08-1e880eb3eb14",
+                            Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "c39a8472-a73e-43b3-a3d0-e4fd8bfdff3f",
-                            ConcurrencyStamp = "486833e5-b156-4c15-83de-9bb298f5bab3",
-                            Name = "USER",
+                            Id = "7ed9f54a-c09d-474c-982e-1074e90f4e12",
+                            ConcurrencyStamp = "2dcd0e47-9081-4914-a732-7c5c0e93b441",
+                            Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "73de23f0-a6bd-43d8-b411-fc7612e1556e",
-                            ConcurrencyStamp = "0bfe9d0f-4b7e-4c0b-99d8-3ee538e32b6b",
-                            Name = "SALON",
+                            Id = "6feab1e3-3e99-4db8-9e66-0b16db3ca7c8",
+                            ConcurrencyStamp = "c4386dde-34bd-43cb-8950-ce26939ff7d6",
+                            Name = "Salon",
                             NormalizedName = "SALON"
                         },
                         new
                         {
-                            Id = "73a1c2e1-28b0-4531-9561-32a813c49354",
-                            ConcurrencyStamp = "2fc0b3ad-4b96-4e1f-8429-8ef2a269a6c8",
-                            Name = "WORKER",
+                            Id = "424448d8-ec71-41c6-8e91-abe0b2ca6432",
+                            ConcurrencyStamp = "2cc1f918-6481-46c5-ad5a-ace452423e40",
+                            Name = "Worker",
                             NormalizedName = "WORKER"
                         });
                 });
@@ -399,7 +398,9 @@ namespace Beauty.EFDataAccessLibrary.Migrations
                 {
                     b.HasOne("Beauty.EFDataAccessLibrary.Models.ServiceWorker", "ServiceWorker")
                         .WithMany()
-                        .HasForeignKey("ServiceWorkerId1");
+                        .HasForeignKey("ServiceWorkerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Beauty.EFDataAccessLibrary.Models.User", "Worker")
                         .WithMany("Orders")

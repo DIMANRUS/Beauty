@@ -12,10 +12,10 @@ namespace Beauty.EFDataAccessLibrary.Contexts {
         public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole[] {
-                new IdentityRole("Admin"){ NormalizedName = "ADMIN"},
-                new IdentityRole("User"){ NormalizedName = "USER"},
-                new IdentityRole("Salon"){NormalizedName = "SALON"},
-                new IdentityRole("Worker"){NormalizedName = "WORKER"}
+                new IdentityRole("ADMIN"){ NormalizedName = "ADMIN"},
+                new IdentityRole("USER"){ NormalizedName = "USER"},
+                new IdentityRole("SALON"){NormalizedName = "SALON"},
+                new IdentityRole("WORKER"){NormalizedName = "WORKER"}
             });
             modelBuilder.Entity<Service>().HasData(new Service[]{
                 new Service(){ServiceName = "Стрижка", Id = 1 },
