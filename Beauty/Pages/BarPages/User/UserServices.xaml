@@ -2,29 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Beauty.Pages.BarPages.User.UserServices"
-             xmlns:views="clr-namespace:Beauty.Views" xmlns:xctk="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:views="clr-namespace:Beauty.Views"
+             xmlns:xctk="http://xamarin.com/schemas/2020/toolkit"
              xmlns:VM="clr-namespace:Beauty.ViewModels.BarPagesVM.User">
     <ContentPage.Behaviors>
         <xctk:EventToCommandBehavior EventName="Appearing"
                                      Command="{Binding PageLoadingCommand}" />
     </ContentPage.Behaviors>
     <ContentPage.BindingContext>
-        <VM:UserServicesVM/>
+        <VM:UserServicesVM />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <CollectionView xctk:StateLayout.CurrentState="{Binding CurrentState}"
-                        xctk:StateLayout.AnimateStateChanges="true"
-                        ItemsSource="{Binding Orders}">
+        <Grid xctk:StateLayout.CurrentState="{Binding CurrentState}"
+              xctk:StateLayout.AnimateStateChanges="true">
             <xctk:StateLayout.StateViews>
                 <xctk:StateView StateKey="Empty">
-                    <views:EmptyView/>
+                    <views:EmptyView />
+                </xctk:StateView>
+                <xctk:StateView StateKey="Loading">
+                    <views:LoaderView />
                 </xctk:StateView>
             </xctk:StateLayout.StateViews>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Label Text="{Binding Price}"/>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            <CollectionView ItemsSource="{Binding Orders}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Price}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

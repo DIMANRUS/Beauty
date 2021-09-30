@@ -24,9 +24,9 @@ namespace Beauty.Converters {
                      "User" => true,
                      _ => false
                  },
-                 "User" => (parameter.ToString() == "User" || parameter.ToString() == "All") ? true : false,
-                 "Master" => (parameter.ToString() == "MasterSalon" || parameter.ToString() == "All") ? true : false,
-                 "Salon" => (parameter.ToString() == "MasterSalon" || parameter.ToString() == "Salon" || parameter.ToString() == "All") ? true : false,
+                 "USER" => (parameter.ToString() == "User" || parameter.ToString() == "All") ? true : false,
+                 "MASTER" => (parameter.ToString() == "MasterSalon" || parameter.ToString() == "All") ? true : false,
+                 "SALON" => (parameter.ToString() == "MasterSalon" || parameter.ToString() == "Salon" || parameter.ToString() == "All") ? true : false,
                  _ => false
              };
 

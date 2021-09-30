@@ -10,7 +10,8 @@
        xmlns:userPages="clr-namespace:Beauty.Pages.BarPages.User"
        xmlns:masterSalonPages="clr-namespace:Beauty.Pages.BarPages.MasterSalon"
        xmlns:salonPages="clr-namespace:Beauty.Pages.BarPages.Salon"
-       xmlns:allPages="clr-namespace:Beauty.Pages.BarPages.All">
+       xmlns:allPages="clr-namespace:Beauty.Pages.BarPages.All"
+       xmlns:xctk="http://xamarin.com/schemas/2020/toolkit">
     <Shell.BindingContext>
         <vm:BottomBarPageVM />
     </Shell.BindingContext>

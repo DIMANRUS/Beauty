@@ -4,7 +4,7 @@ using Xamarin.CommunityToolkit.UI.Views;
 
 namespace Beauty.ViewModels.Shared {
     public class BaseVM : INotifyPropertyChanged {
-        private LayoutState _layoutState = LayoutState.None;
+        private LayoutState _layoutState = LayoutState.Loading;
         public LayoutState CurrentState { get => _layoutState; protected set { _layoutState = value; NotifyPropertyChanged(); } }
         public event PropertyChangedEventHandler PropertyChanged;
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "") =>

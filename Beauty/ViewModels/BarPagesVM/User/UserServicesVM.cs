@@ -10,6 +10,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 using System.Text.Json;
+using Xamarin.CommunityToolkit.UI.Views;
 
 namespace Beauty.ViewModels.BarPagesVM.User {
     class UserServicesVM : BaseVM {
@@ -20,6 +21,10 @@ namespace Beauty.ViewModels.BarPagesVM.User {
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await SecureStorage.GetAsync("UserToken"));
                 var jsonResult = await httpClient.GetStreamAsync($"https://api.beauty.dimanrus.ru/Order/GetOrders");
                 Orders = await JsonSerializer.DeserializeAsync<ObservableCollection<Order>>(jsonResult);
+                if(Orders.Count == 0)
+                    CurrentState = LayoutState.Empty;
+                else
+                    CurrentState = LayoutState.None;
             });
         }
         public ObservableCollection<Order> Orders { get; set; }

@@ -203,7 +203,7 @@ namespace Beauty.ViewModels {
             TokenHelper tokenHelper = new TokenHelper( token);
             string role = tokenHelper.GetRole();
             await SecureStorage.SetAsync("UserName",tokenHelper.GetName());
-            await SecureStorage.SetAsync("UserRole", (role != "Admin") ? role : "User");
+            await SecureStorage.SetAsync("UserRole", (role != "ADMIN") ? role : "USER");
             await SecureStorage.SetAsync("UserEmail", tokenHelper.GetEmail());
             await SecureStorage.SetAsync("UserId", tokenHelper.GetNameIdentifer());
             await SecureStorage.SetAsync("UserToken", token);
