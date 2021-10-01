@@ -110,7 +110,6 @@ namespace Beauty.ViewModels.BarPagesVM.All {
         private byte[] _photo;
 
         public ICommand ExitCommand { get; private set; }
-        public ICommand PageLoadingCommand { get; private set; }
         public ICommand OpenFilePicker { get; private set; }
         public ICommand SaveNewUserData { get; private set; }
 

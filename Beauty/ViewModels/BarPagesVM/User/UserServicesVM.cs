@@ -29,6 +29,5 @@ namespace Beauty.ViewModels.BarPagesVM.User {
             });
         }
         public ObservableCollection<Order> Orders { get; set; }
-        public ICommand PageLoadingCommand { get; set; }
     }
 }
