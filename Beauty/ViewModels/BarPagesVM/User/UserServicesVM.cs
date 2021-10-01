@@ -17,6 +17,7 @@ namespace Beauty.ViewModels.BarPagesVM.User {
         public UserServicesVM() {
             PageLoadingCommand = new Command(async () =>
             {
+                CurrentState = LayoutState.Loading;
                 HttpClient httpClient = new HttpClient();
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await SecureStorage.GetAsync("UserToken"));
                 var jsonResult = await httpClient.GetStreamAsync($"https://api.beauty.dimanrus.ru/Order/GetOrders");

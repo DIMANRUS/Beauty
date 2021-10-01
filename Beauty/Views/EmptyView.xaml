@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Beauty.Views.EmptyView">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Image Source="nothingfound.png" HeightRequest="80"/>
+        <Image Source="nothingfound.png" HeightRequest="85"/>
         <Label Text="Пусто!" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" />
     </StackLayout>
 </ContentView>
