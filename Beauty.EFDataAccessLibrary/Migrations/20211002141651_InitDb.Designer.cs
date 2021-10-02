@@ -10,15 +10,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Beauty.EFDataAccessLibrary.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210913082056_AddServiceCategory")]
-    partial class AddServiceCategory
+    [Migration("20211002141651_InitDb")]
+    partial class InitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.9")
+                .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Beauty.EFDataAccessLibrary.Models.Order", b =>
@@ -28,17 +28,20 @@ namespace Beauty.EFDataAccessLibrary.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
 
-                    b.Property<int>("ServiceWorkerId")
+                    b.Property<string>("ServiceWorkerId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ServiceWorkerId1")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Start")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("WorkerId")
                         .HasColumnType("int");
@@ -48,7 +51,7 @@ namespace Beauty.EFDataAccessLibrary.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ServiceWorkerId");
+                    b.HasIndex("ServiceWorkerId1");
 
                     b.HasIndex("WorkerId1");
 
@@ -62,19 +65,14 @@ namespace Beauty.EFDataAccessLibrary.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ServiceName")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("SeviceCategoryId")
+                    b.Property<int>("SeviceCategoryId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Id");
 
                     b.HasIndex("SeviceCategoryId");
 
@@ -84,14 +82,48 @@ namespace Beauty.EFDataAccessLibrary.Migrations
                         new
                         {
                             Id = 1,
-                            CategoryId = 0,
-                            ServiceName = "Стрижка"
+                            ServiceName = "Кроп",
+                            SeviceCategoryId = 1
                         },
                         new
                         {
                             Id = 2,
-                            CategoryId = 0,
-                            ServiceName = "Маникюр"
+                            ServiceName = "Флет-топ",
+                            SeviceCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ServiceName = "Маникюр",
+                            SeviceCategoryId = 2
+                        });
+                });
+
+            modelBuilder.Entity("Beauty.EFDataAccessLibrary.Models.ServiceCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CategoryName")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ServiceCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryName = "Стрижка"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryName = "Маникюр"
                         });
                 });
 
@@ -102,8 +134,8 @@ namespace Beauty.EFDataAccessLibrary.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
 
                     b.Property<int>("SalePercent")
                         .HasColumnType("int");
@@ -127,22 +159,6 @@ namespace Beauty.EFDataAccessLibrary.Migrations
                     b.HasIndex("UserId1");
 
                     b.ToTable("ServicesWorkers");
-                });
-
-            modelBuilder.Entity("Beauty.EFDataAccessLibrary.Models.SeviceCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CategoryName")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SeviceCategory");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -174,30 +190,30 @@ namespace Beauty.EFDataAccessLibrary.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b791f6c4-d594-43f2-bb99-fdce905ffa9b",
-                            ConcurrencyStamp = "ca9579c0-3026-41e1-8d08-1e880eb3eb14",
-                            Name = "Admin",
+                            Id = "ef286770-cf0d-484f-8267-3972468cb0cd",
+                            ConcurrencyStamp = "704aabdd-007a-4bbb-93c1-8d1256f0c185",
+                            Name = "ADMIN",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "7ed9f54a-c09d-474c-982e-1074e90f4e12",
-                            ConcurrencyStamp = "2dcd0e47-9081-4914-a732-7c5c0e93b441",
-                            Name = "User",
+                            Id = "343ec1f3-c4ec-4488-a2ab-a5e8aa0e29dc",
+                            ConcurrencyStamp = "179842b7-a517-4a22-b5b9-5d8ab41610e5",
+                            Name = "USER",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "6feab1e3-3e99-4db8-9e66-0b16db3ca7c8",
-                            ConcurrencyStamp = "c4386dde-34bd-43cb-8950-ce26939ff7d6",
-                            Name = "Salon",
+                            Id = "b011bf30-fc8f-4c46-b750-2b2e26ceacd3",
+                            ConcurrencyStamp = "c6343b55-1816-435f-b214-b009f9915a11",
+                            Name = "SALON",
                             NormalizedName = "SALON"
                         },
                         new
                         {
-                            Id = "424448d8-ec71-41c6-8e91-abe0b2ca6432",
-                            ConcurrencyStamp = "2cc1f918-6481-46c5-ad5a-ace452423e40",
-                            Name = "Worker",
+                            Id = "c63792fc-10f7-400e-a0c3-e4d2c09d5b69",
+                            ConcurrencyStamp = "cbd5a1ce-464c-4e3c-a98f-0bf000f99e8b",
+                            Name = "WORKER",
                             NormalizedName = "WORKER"
                         });
                 });
@@ -398,9 +414,7 @@ namespace Beauty.EFDataAccessLibrary.Migrations
                 {
                     b.HasOne("Beauty.EFDataAccessLibrary.Models.ServiceWorker", "ServiceWorker")
                         .WithMany()
-                        .HasForeignKey("ServiceWorkerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ServiceWorkerId1");
 
                     b.HasOne("Beauty.EFDataAccessLibrary.Models.User", "Worker")
                         .WithMany("Orders")
@@ -413,9 +427,11 @@ namespace Beauty.EFDataAccessLibrary.Migrations
 
             modelBuilder.Entity("Beauty.EFDataAccessLibrary.Models.Service", b =>
                 {
-                    b.HasOne("Beauty.EFDataAccessLibrary.Models.SeviceCategory", "SeviceCategory")
+                    b.HasOne("Beauty.EFDataAccessLibrary.Models.ServiceCategory", "SeviceCategory")
                         .WithMany("Services")
-                        .HasForeignKey("SeviceCategoryId");
+                        .HasForeignKey("SeviceCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("SeviceCategory");
                 });
@@ -493,7 +509,7 @@ namespace Beauty.EFDataAccessLibrary.Migrations
                     b.Navigation("ServicesWorkers");
                 });
 
-            modelBuilder.Entity("Beauty.EFDataAccessLibrary.Models.SeviceCategory", b =>
+            modelBuilder.Entity("Beauty.EFDataAccessLibrary.Models.ServiceCategory", b =>
                 {
                     b.Navigation("Services");
                 });

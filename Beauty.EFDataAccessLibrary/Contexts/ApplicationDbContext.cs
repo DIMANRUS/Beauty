@@ -22,9 +22,9 @@ namespace Beauty.EFDataAccessLibrary.Contexts {
             #endregion
             #region Services ServiceCategories
             modelBuilder.Entity<Service>().HasData(new Service[]{
-                new Service(){ServiceName = "Кроп", Id = 1, CategoryId = 1},
-                new Service(){ServiceName = "Флет-топ", Id = 1, CategoryId = 1 },
-                new Service(){ServiceName = "Маникюр", Id = 2 }
+                new Service(){ServiceName = "Кроп", Id = 1, SeviceCategoryId = 1},
+                new Service(){ServiceName = "Флет-топ", Id = 2, SeviceCategoryId = 1 },
+                new Service(){ServiceName = "Маникюр", Id = 3, SeviceCategoryId = 2 }
             });
             modelBuilder.Entity<ServiceCategory>().HasData(new ServiceCategory[]{
                 new ServiceCategory(){Id = 1, CategoryName="Стрижка"},

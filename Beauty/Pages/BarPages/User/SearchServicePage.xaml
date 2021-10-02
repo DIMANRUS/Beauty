@@ -6,17 +6,21 @@
              xmlns:VM="clr-namespace:Beauty.ViewModels.BarPagesVM.User"
              xmlns:views="clr-namespace:Beauty.Views">
     <ContentPage.BindingContext>
-        <VM:SearchServicePageVM/>
+        <VM:SearchServicePageVM />
     </ContentPage.BindingContext>
     <ContentPage.Behaviors>
-        <xctk:EventToCommandBehavior EventName="Appearing" Command="{Binding PageLoadingCommand}"/>
+        <xctk:EventToCommandBehavior EventName="Appearing"
+                                     Command="{Binding PageLoadingCommand}" />
     </ContentPage.Behaviors>
     <ContentPage.Content>
         <StackLayout xctk:StateLayout.CurrentState="{Binding CurrentState}"
-              xctk:StateLayout.AnimateStateChanges="true">
-            <Entry Placeholder="Название услуги"/>
+                     xctk:StateLayout.AnimateStateChanges="true">
+            <Entry Placeholder="Название услуги" />
             <StackLayout Orientation="Horizontal">
-                <Picker ItemsSource="{Binding ServiceCategories.CategoryName}"/>
+                <Picker ItemsSource="{Binding ServiceCategoties}"
+                        SelectedItem="{Binding ServiceCategorySelected}"
+                        HorizontalTextAlignment="Center"
+                        WidthRequest="200" />
             </StackLayout>
             <xctk:StateLayout.StateViews>
                 <xctk:StateView StateKey="Empty">
