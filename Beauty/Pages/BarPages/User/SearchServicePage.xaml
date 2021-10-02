@@ -1,12 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Beauty.Pages.BarPages.User.SearchServicePage">
+             x:Class="Beauty.Pages.BarPages.User.SearchServicePage"
+             xmlns:xctk="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:VM="clr-namespace:Beauty.ViewModels.BarPagesVM.User"
+             xmlns:views="clr-namespace:Beauty.Views">
+    <ContentPage.BindingContext>
+        <VM:SearchServicePageVM/>
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xctk:EventToCommandBehavior EventName="Appearing" Command="{Binding PageLoadingCommand}"/>
+    </ContentPage.Behaviors>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout xctk:StateLayout.CurrentState="{Binding CurrentState}"
+              xctk:StateLayout.AnimateStateChanges="true">
+            <Entry Placeholder="Название услуги"/>
+            <StackLayout Orientation="Horizontal">
+                <Picker ItemsSource="{Binding ServiceCategories.CategoryName}"/>
+            </StackLayout>
+            <xctk:StateLayout.StateViews>
+                <xctk:StateView StateKey="Empty">
+                    <views:EmptyView />
+                </xctk:StateView>
+                <xctk:StateView StateKey="Loading">
+                    <views:LoaderView />
+                </xctk:StateView>
+            </xctk:StateLayout.StateViews>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
