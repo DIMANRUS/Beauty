@@ -24,5 +24,9 @@ namespace Beauty.API.Controllers {
         [HttpGet]
         public async Task<string> GetServicesAndCategories() =>
            JsonSerializer.Serialize<IEnumerable<ServiceCategory>>(await _db.ServiceCategories.Include(x => x.Services).ToListAsync(), options);
+
+        [HttpGet("ServicesWorkers")]
+        public async Task<string> GetSericesWorkers() =>
+            JsonSerializer.Serialize<IEnumerable<ServiceWorker>>(await _db.ServicesWorkers.Include(x => x.Service).Include(x=>x.User).ToListAsync(), options);
     }
 }

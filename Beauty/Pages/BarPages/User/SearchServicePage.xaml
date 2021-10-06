@@ -20,7 +20,19 @@
                 <Picker ItemsSource="{Binding ServiceCategoties}"
                         SelectedItem="{Binding ServiceCategorySelected}"
                         HorizontalTextAlignment="Center"
-                        WidthRequest="200" />
+                        WidthRequest="200">
+                    <Picker.Behaviors>
+                        <xctk:EventToCommandBehavior EventName="SelectedIndexChanged" Command="{Binding SelectedCategotyServiceCommand}"/>
+                    </Picker.Behaviors>
+                </Picker>
+                <Picker ItemsSource="{Binding Services}"
+                        SelectedItem="{Binding ServiceSelected}"
+                        HorizontalTextAlignment="Center"
+                        WidthRequest="200">
+                    <Picker.Behaviors>
+                        <xctk:EventToCommandBehavior EventName="SelectedIndexChanged" Command="{Binding SelectedServiceCommand}"/>
+                    </Picker.Behaviors>
+                </Picker>
             </StackLayout>
             <xctk:StateLayout.StateViews>
                 <xctk:StateView StateKey="Empty">
