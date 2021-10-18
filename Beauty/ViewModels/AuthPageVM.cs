@@ -136,7 +136,7 @@ namespace Beauty.ViewModels {
                 Password = Password
             };
             var content = new StringContent(JsonSerializer.Serialize(loginModelRequest), Encoding.UTF8, "application/json");
-            return await httpClient.PostAsync("https://api.beauty.dimanrus.ru/auth/login", content);
+            return await httpClient.PostAsync("https://beauty-api.conveyor.cloud/auth/login", content);
 
         }
         private async Task<HttpResponseMessage> Registration(HttpClient httpClient) {

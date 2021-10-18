@@ -13,6 +13,9 @@ namespace Beauty.API.Controllers {
         public AuthController(IUserService userService)
             => _userService = userService;
 
+        [HttpGet]
+        public int Get() => 5;
+
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegistrationModelRequest registrationModel) {
             if (ModelState.IsValid && registrationModel.Role != "ADMIN")

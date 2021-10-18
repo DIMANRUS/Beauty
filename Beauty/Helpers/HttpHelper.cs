@@ -10,11 +10,11 @@ using Xamarin.Essentials;
 
 namespace Beauty.Helpers {
     static class HttpHelper {
-        static string _baseUri = "https://api.beauty.dimanrus.ru";
+        static string _baseUri = "https://192.168.228.138:45455/";
         static HttpClient _httpClient = new HttpClient();
         public static async Task<T> GetRequest<T>(string url) {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await SecureStorage.GetAsync("UserToken"));
-            Stream jsonStream = await _httpClient.GetStreamAsync(_baseUri + "/" + url);
+            Stream jsonStream = await _httpClient.GetStreamAsync(_baseUri + url);
             return await JsonSerializer.DeserializeAsync<T>(jsonStream);
         }
     }

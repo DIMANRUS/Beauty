@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Beauty.Droid {
-    [Activity(Label = "SplashSctivity", MainLauncher = true, Theme = "@style/MyTheme.Splash", NoHistory = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
+    [Activity(MainLauncher = true, Theme = "@style/MyTheme.Splash", NoHistory = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class SplashActivity : Activity {
 
         public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
