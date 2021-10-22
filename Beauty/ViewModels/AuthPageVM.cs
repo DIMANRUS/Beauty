@@ -17,16 +17,13 @@ using Beauty.Shared.Helpers;
 
 namespace Beauty.ViewModels {
     public class AuthPageVM : BaseVM {
+        #region Private fields
         private Page _page;
-        //private string _email = "";
-        //private string _password = "";
-        //private string _userName = "";
         private string _userRole = "Пользователь";
-        //private string _phone = "";
         private string _authButtonText = "Войти";
         private string _changeTypeAuthButtonText = "Зарегистрироваться";
         private byte[] Photo;
-        //private bool
+        #endregion
         public AuthPageVM() {
             OnAppearing = new Command(()
                 => _page = Application.Current.MainPage);
@@ -78,12 +75,6 @@ namespace Beauty.ViewModels {
                 } else
                     await _page.DisplayAlert("Ошибка", "Заполните поле с почтой для сброса пароля", "OK");
             });
-            //ChangeStateSelectionServicesView = new Command(() => {
-            //    IsVisibleServicesView = !IsVisibleServicesView;
-            //    IsVisibleBox = !IsVisibleBox;
-            //    NotifyPropertyChanged(nameof(IsVisibleServicesView));
-            //    NotifyPropertyChanged(nameof(IsVisibleBox));
-            //});
             OpenFilePicker = new Command(async () => {
                 var customFileType = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
                 {
@@ -104,7 +95,7 @@ namespace Beauty.ViewModels {
                 }
             });
         }
-
+        #region Public fields
         public string Email { get; set; }
         public string Password { get; set; }
         public string UserName { get; set; }
@@ -116,30 +107,25 @@ namespace Beauty.ViewModels {
 
         public bool IsVisibleRegisterControls { get; private set; } = false;
         public bool IsSelfEmployed { get; set; }
-        //public bool IsVisibleServicesView { get; private set; } = false;
-        //public bool IsVisibleBox { get; private set; } = false;
-
-        //public bool IsHairCut { get; set; } = false;
-        //public bool IsManicur { get; set; } = false;
-
+        #endregion
+        #region Commands
         public ICommand AuthRegClick { get; private set; }
         public ICommand RegisterClick { get; private set; }
         public ICommand ChangeTypeAuthorization { get; private set; }
         public ICommand ForgetPassword { get; private set; }
         public ICommand OnAppearing { get; set; }
-        //public ICommand ChangeStateSelectionServicesView { get; set; }
         public ICommand OpenFilePicker { get; private set; }
-
-        private async Task<HttpResponseMessage> Authorization(HttpClient httpClient) {
+        #endregion
+        #region Private methods
+        async Task<HttpResponseMessage> Authorization(HttpClient httpClient) {
             LoginModelRequest loginModelRequest = new LoginModelRequest() {
                 Email = Email,
                 Password = Password
             };
             var content = new StringContent(JsonSerializer.Serialize(loginModelRequest), Encoding.UTF8, "application/json");
             return await httpClient.PostAsync("https://beauty-api.conveyor.cloud/auth/login", content);
-
         }
-        private async Task<HttpResponseMessage> Registration(HttpClient httpClient) {
+        async Task<HttpResponseMessage> Registration(HttpClient httpClient) {
             RegistrationModelRequest registrationModelRequest = new RegistrationModelRequest() {
                 Email = Email,
                 Password = Password,
@@ -208,5 +194,6 @@ namespace Beauty.ViewModels {
             await SecureStorage.SetAsync("UserId", tokenHelper.GetNameIdentifer());
             await SecureStorage.SetAsync("UserToken", token);
         }
+        #endregion
     }
 }
