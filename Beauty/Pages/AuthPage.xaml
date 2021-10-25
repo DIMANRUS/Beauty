@@ -41,7 +41,15 @@
                                Style="{StaticResource IconForEntryStyle}" />
                         <Entry Text="{Binding Password, Mode=OneWayToSource, Converter={StaticResource NullCheckConverter}}"
                                Placeholder="Введите пароль"
-                               IsPassword="True" />
+                               IsPassword="True" 
+                               MaxLength="30"/>
+                        <Image Source="help.png"
+                               Style="{StaticResource IconForEntryStyle}"
+                               IsVisible="{Binding IsVisibleRegisterControls}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenDialogAboutPassword}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
                     </StackLayout>
                     <StackLayout IsVisible="{Binding IsVisibleRegisterControls}">
                         <StackLayout Orientation="Horizontal">
@@ -142,40 +150,6 @@
                     </Label>
                 </StackLayout>
             </Frame>
-            <!--<BoxView Color="Black"
-                     Opacity="0.8"
-                     IsVisible="{Binding IsVisibleBox}" />
-            <Frame HasShadow="True"
-                   HeightRequest="410"
-                   WidthRequest="270"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   CornerRadius="20"
-                   IsVisible="{Binding IsVisibleServicesView}">
-                <StackLayout>
-                    <Label Text="Услуги"
-                           FontAttributes="Bold"
-                           HorizontalOptions="Center"
-                           FontSize="35" />
-                    <StackLayout Orientation="Horizontal">
-                        <CheckBox IsChecked="{Binding IsHairCut}" />
-                        <Label Text="Стрижка"
-                               FontSize="28" />
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <CheckBox IsChecked="{Binding IsManicur}" />
-                        <Label Text="Маникюр"
-                               FontSize="28" />
-                    </StackLayout>
-                    <Button Text="Закрыть"
-                            FontAttributes="Bold"
-                            BackgroundColor="Red"
-                            CornerRadius="20"
-                            FontSize="20"
-                            Command="{Binding ChangeStateSelectionServicesView}"
-                            VerticalOptions="EndAndExpand" />
-                </StackLayout>
-            </Frame>-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

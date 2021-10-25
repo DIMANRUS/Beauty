@@ -1,29 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using Newtonsoft.Json;
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace Beauty.Helpers {
-    static class HttpHelper {
-        static string _baseUri = "https://api.beauty.dimanrus.ru/";
-        static HttpClient _httpClient = new HttpClient();
-        public static async Task<T> GetRequest<T>(string url) {
+    class HttpHelper {
+        static readonly HttpClient _httpClient = new HttpClient()
+        {
+            BaseAddress = new Uri("https://api.beauty.dimanrus.ru/")
+        };
+        public static async Task<T> GetRequest<T>(string url)
+        {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await SecureStorage.GetAsync("UserToken"));
-            Stream jsonStream = await _httpClient.GetStreamAsync(_baseUri + url);
-            return await JsonSerializer.DeserializeAsync<T>(jsonStream);
+            string jsonResponse = await _httpClient.GetStringAsync(url);
+            return JsonConvert.DeserializeObject<T>(jsonResponse);
         }
-        public static async Task<T> PostRequest<T>(string url, object model) {
-
+        public static async Task<HttpResponseMessage> PostRequest(string url, object model)
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await SecureStorage.GetAsync("UserToken"));
+            return await _httpClient.PostAsync(url, new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json"));
         }
     }
-
-    //class HttpHelperResponsee<T> {
-    //    public T Data { get; set; }
-    //    public bool IsSuccessfully { get; set; }
-    //}
 }

@@ -15,6 +15,7 @@ using System.Net.Http.Headers;
 using Beauty.Shared.Requests;
 using System.Net;
 using Xamarin.CommunityToolkit.UI.Views;
+using Beauty.Helpers;
 
 namespace Beauty.ViewModels.BarPagesVM.All {
     class ProfilePageVM : BaseVM {
@@ -22,10 +23,7 @@ namespace Beauty.ViewModels.BarPagesVM.All {
             Task.Run(async () =>
             {
                 CurrentState = LayoutState.Loading;
-                HttpClient httpClient = new HttpClient();
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await SecureStorage.GetAsync("UserToken"));
-                var json = await httpClient.GetStringAsync("https://api.beauty.dimanrus.ru/User/GetUser");
-                UserResponse userResponse = JsonSerializer.Deserialize<UserResponse>(json);
+                UserResponse userResponse = await HttpHelper.GetRequest<UserResponse>("User/GetUser");
                 UserName = userResponse.UserName;
                 Phone = userResponse.PhoneNumber;
                 Email = userResponse.Email;
