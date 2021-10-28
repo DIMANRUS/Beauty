@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Beauty.Shared.Requests;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -18,10 +19,12 @@ namespace Beauty.Helpers {
             string jsonResponse = await _httpClient.GetStringAsync(url);
             return JsonConvert.DeserializeObject<T>(jsonResponse);
         }
-        public static async Task<HttpResponseMessage> PostRequest(string url, object model)
+        public static async Task<HttpResponseMessage> PostRequest<T>(string url, T model)
         {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await SecureStorage.GetAsync("UserToken"));
-            return await _httpClient.PostAsync(url, new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json"));
+            var token = await SecureStorage.GetAsync("UserToken");
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string json = JsonConvert.SerializeObject(model);
+            return await _httpClient.PostAsync(url, new StringContent(json, Encoding.UTF8, "application/json"));
         }
     }
 }

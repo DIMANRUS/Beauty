@@ -34,15 +34,14 @@
                     <Frame Margin="10" CornerRadius="20" Padding="10">
                         <StackLayout>
                             <StackLayout Orientation="Horizontal">
-
-                                <Image Source="user.png"
-                               HeightRequest="25" 
-                               VerticalOptions="StartAndExpand"/>
+                                <Image Source="{Binding Photo, TargetNullValue='user.png'}"
+                                       HeightRequest="25" 
+                                       VerticalOptions="StartAndExpand"/>
                                 <Label Grid.Column="1"
-                               Text="Данные"
-                               FontAttributes="Bold"
-                               FontSize="20"
-                               Margin="6,0,0,0" />
+                                       Text="Данные"
+                                       FontAttributes="Bold"
+                                       FontSize="20"
+                                       Margin="6,0,0,0" />
                             </StackLayout>
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal">
