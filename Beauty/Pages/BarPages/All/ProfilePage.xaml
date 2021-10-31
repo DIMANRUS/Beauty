@@ -31,7 +31,7 @@
                            FontSize="30"
                            Margin="10" />
                     </StackLayout>
-                    <Frame Margin="10" CornerRadius="20" Padding="10">
+                    <Frame>
                         <StackLayout>
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="{Binding Photo, TargetNullValue='user.png'}"
@@ -80,6 +80,12 @@
                                 </StackLayout>
                                 <Button Text="Сохранить" Command="{Binding SaveNewUserData}"/>
                             </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource Admin}, Mode=OneWay}">
+                        <StackLayout>
+                            <Label Text="Тип пользователя"/>
+
                         </StackLayout>
                     </Frame>
                     <Button Text="Выйти"

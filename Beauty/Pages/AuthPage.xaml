@@ -7,12 +7,14 @@
              xmlns:VM="clr-namespace:Beauty.ViewModels"
              xmlns:xctk="http://xamarin.com/schemas/2020/toolkit"
              x:Name="page"
-             x:DataType="VM:AuthPageVM"
              xmlns:views="clr-namespace:Beauty.Views">
     <ContentPage.Behaviors>
         <xctk:EventToCommandBehavior Command="{Binding OnAppearing}"
                                      EventName="Appearing" />
     </ContentPage.Behaviors>
+    <ContentPage.BindingContext>
+        <VM:AuthPageVM/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid xctk:StateLayout.CurrentState="{Binding CurrentState}"
               xctk:StateLayout.AnimateStateChanges="true">

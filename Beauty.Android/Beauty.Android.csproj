@@ -42,9 +42,12 @@
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
     <AndroidEnableMultiDex>false</AndroidEnableMultiDex>
-    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis>
     </AndroidSupportedAbis>
+<AndroidHttpClientHandlerType>AndroidClientHandler</AndroidHttpClientHandlerType>
+<AndroidTlsProvider>По умолчанию (собственный TLS версии 1.2 или выше)</AndroidTlsProvider>
+<AndroidLinkTool></AndroidLinkTool>
+<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,10 +64,14 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidLinkTool>r8</AndroidLinkTool>
-    <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <AndroidPackageFormat>aab</AndroidPackageFormat>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
     <MandroidI18n />
+<AndroidHttpClientHandlerType>AndroidClientHandler</AndroidHttpClientHandlerType>
+<AndroidTlsProvider>По умолчанию (собственный TLS версии 1.2 или выше)</AndroidTlsProvider>
+<AndroidLinkMode>None</AndroidLinkMode>
+<AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -76,7 +83,7 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>5.0.0.2012</Version>
+      <Version>5.0.0.2196</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
