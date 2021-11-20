@@ -38,6 +38,7 @@
     <None Remove="ViewModels\Shared\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Beauty.EFDataAccessLibrary\Beauty.EFDataAccessLibrary.csproj" />
     <ProjectReference Include="..\Beauty.Shared\Beauty.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
