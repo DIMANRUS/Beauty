@@ -42,12 +42,13 @@
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
     <AndroidEnableMultiDex>false</AndroidEnableMultiDex>
-    <AndroidSupportedAbis>
-    </AndroidSupportedAbis>
-<AndroidHttpClientHandlerType>AndroidClientHandler</AndroidHttpClientHandlerType>
-<AndroidTlsProvider>По умолчанию (собственный TLS версии 1.2 или выше)</AndroidTlsProvider>
-<AndroidLinkTool></AndroidLinkTool>
-<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <AndroidTlsProvider>
+    </AndroidTlsProvider>
+    <AndroidLinkTool>
+    </AndroidLinkTool>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,10 +69,10 @@
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
     <MandroidI18n />
-<AndroidHttpClientHandlerType>AndroidClientHandler</AndroidHttpClientHandlerType>
-<AndroidTlsProvider>По умолчанию (собственный TLS версии 1.2 или выше)</AndroidTlsProvider>
-<AndroidLinkMode>None</AndroidLinkMode>
-<AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+    <AndroidHttpClientHandlerType>AndroidClientHandler</AndroidHttpClientHandlerType>
+    <AndroidTlsProvider>По умолчанию (собственный TLS версии 1.2 или выше)</AndroidTlsProvider>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -198,6 +199,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\workers.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

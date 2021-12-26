@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Beauty.Pages.BarPages.All.ProfilePage"
              xmlns:VMAll="clr-namespace:Beauty.ViewModels.BarPagesVM.All"
-             xmlns:xctk="http://xamarin.com/schemas/2020/toolkit" xmlns:views="clr-namespace:Beauty.Views">
+             xmlns:xctk="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:views="clr-namespace:Beauty.Views">
     <ContentPage.Behaviors>
         <xctk:EventToCommandBehavior EventName="Appearing"
                                      Command="{Binding PageLoadingCommand}" />
@@ -22,21 +23,21 @@
             <ScrollView>
                 <StackLayout>
                     <StackLayout Orientation="Horizontal"
-                             Margin="15">
+                                 Margin="15">
                         <Frame CornerRadius="100">
                             <Image Source="user.png" />
                         </Frame>
                         <Label Text="{Binding UserName}"
-                           FontAttributes="Bold"
-                           FontSize="30"
-                           Margin="10" />
+                               FontAttributes="Bold"
+                               FontSize="30"
+                               Margin="10" />
                     </StackLayout>
                     <Frame>
                         <StackLayout>
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="{Binding Photo, TargetNullValue='user.png'}"
-                                       HeightRequest="25" 
-                                       VerticalOptions="StartAndExpand"/>
+                                       HeightRequest="25"
+                                       VerticalOptions="StartAndExpand" />
                                 <Label Grid.Column="1"
                                        Text="Данные"
                                        FontAttributes="Bold"
@@ -46,56 +47,51 @@
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="camera.png"
-                                       Style="{StaticResource IconForEntryStyle}" />
+                                           Style="{StaticResource IconForEntryStyle}" />
                                     <Button Text="Выбрать"
-                                        Command="{Binding OpenFilePicker}"
-                                        WidthRequest="100" />
+                                            Command="{Binding OpenFilePicker}"
+                                            WidthRequest="100" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="phone.png"
-                                       Style="{StaticResource IconForEntryStyle}" />
+                                           Style="{StaticResource IconForEntryStyle}" />
                                     <Entry Text="{Binding Phone}"
-                                       Placeholder="Номер телефона"
-                                       Keyboard="Numeric" />
+                                           Placeholder="Номер телефона"
+                                           Keyboard="Numeric" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="email.png"
-                                       Style="{StaticResource IconForEntryStyle}" />
+                                           Style="{StaticResource IconForEntryStyle}" />
                                     <Entry Text="{Binding Email, Converter={StaticResource NullCheckConverter}}"
-                                       Placeholder="Введите почту" />
+                                           Placeholder="Введите почту" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="password.png"
-                                       Style="{StaticResource IconForEntryStyle}" />
+                                           Style="{StaticResource IconForEntryStyle}" />
                                     <Entry Text="{Binding CurrentPassword, Mode=OneWayToSource, Converter={StaticResource NullCheckConverter}}"
-                                       Placeholder="Введите старый пароль (обязательно)"
-                                       IsPassword="True" />
+                                           Placeholder="Введите старый пароль (обязательно)"
+                                           IsPassword="True" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="password.png"
-                                       Style="{StaticResource IconForEntryStyle}" />
+                                           Style="{StaticResource IconForEntryStyle}" />
                                     <Entry Text="{Binding NewPassword, Mode=OneWayToSource, Converter={StaticResource NullCheckConverter}}"
-                                       Placeholder="Введите новый пароль"
-                                       IsPassword="True" />
+                                           Placeholder="Введите новый пароль"
+                                           IsPassword="True" />
                                 </StackLayout>
-                                <Button Text="Сохранить" Command="{Binding SaveNewUserData}"/>
+                                <Button Text="Сохранить"
+                                        Command="{Binding SaveNewUserData}" />
                             </StackLayout>
                         </StackLayout>
                     </Frame>
-                    <Frame IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource Admin}, Mode=OneWay}">
-                        <StackLayout>
-                            <Label Text="Тип пользователя"/>
-
-                        </StackLayout>
-                    </Frame>
                     <Button Text="Выйти"
-                        VerticalOptions="EndAndExpand"
-                        BackgroundColor="Red"
-                        FontAttributes="Bold"
-                        Command="{Binding ExitCommand}"
-                        CornerRadius="20"
-                        Margin="10"
-                        FontSize="20" />
+                            VerticalOptions="EndAndExpand"
+                            BackgroundColor="Red"
+                            FontAttributes="Bold"
+                            Command="{Binding ExitCommand}"
+                            CornerRadius="20"
+                            Margin="10"
+                            FontSize="20" />
                 </StackLayout>
             </ScrollView>
         </Grid>

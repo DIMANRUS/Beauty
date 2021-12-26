@@ -7,12 +7,12 @@ using Beauty.Helpers;
 
 namespace Beauty.ViewModels.BarPagesVM.User {
     class UserServicesVM : BaseVM {
-        public UserServicesVM()
-        {
-            PageLoadingCommand = new Command(async () =>
-            {
+        public UserServicesVM() {
+            PageLoadingCommand = new Command(async () => {
                 CurrentState = LayoutState.Loading;
-                Orders = await HttpHelper.GetRequest<ObservableCollection<Order>>("Order/GetOrders");
+                using (HttpHelper httpHelper = new HttpHelper()) {
+                    Orders = await httpHelper.GetRequest<ObservableCollection<Order>>("Order/GetOrders");
+                }
                 if (Orders.Count == 0)
                     CurrentState = LayoutState.Empty;
                 else

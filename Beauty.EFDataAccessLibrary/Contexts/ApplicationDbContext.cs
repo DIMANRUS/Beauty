@@ -8,7 +8,7 @@ namespace Beauty.EFDataAccessLibrary.Contexts {
         public ApplicationDbContext(DbContextOptions options) : base(options) { }
         public new DbSet<User> Users { get; set; }
         public DbSet<Service> Services { get; set; }
-        public DbSet<ServiceWorker> ServicesWorkers { get; set; }
+        public DbSet<WorkerService> WorkerServices { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<ServiceCategory> ServiceCategories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder) {

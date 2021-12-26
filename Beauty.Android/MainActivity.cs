@@ -11,6 +11,9 @@ namespace Beauty.Droid {
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls
+    | System.Net.SecurityProtocolType.Tls11
+    | System.Net.SecurityProtocolType.Tls12;
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults) {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

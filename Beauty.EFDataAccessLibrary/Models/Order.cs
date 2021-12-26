@@ -9,7 +9,7 @@ namespace Beauty.EFDataAccessLibrary.Models {
         public User Worker { get; set; }
         public string UserId { get; set; }
         public string ServiceWorkerId { get; set; }
-        public ServiceWorker ServiceWorker { get; set; }
+        public WorkerService ServiceWorker { get; set; }
         public float Price { get; set; }
         public DateTime Start { get; set; }
     }

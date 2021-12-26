@@ -24,7 +24,9 @@ namespace Beauty.ViewModels.BarPagesVM.User {
         public SearchServicePageVM() {
             PageLoadingCommand = new Command(async () => {
                 CurrentState = LayoutState.Loading;
-                _serviceCategories = await HttpHelper.GetRequest<IEnumerable<ServiceCategory>>("https://api.beauty.dimanrus.ru/Service");
+                using (HttpHelper httpHelper = new HttpHelper()) {
+                    _serviceCategories = await httpHelper.GetRequest<IEnumerable<ServiceCategory>>("https://api.beauty.dimanrus.ru/Service");
+                }
                 ServiceCategoties = _serviceCategories.Select(x => x.CategoryName).ToList();
                 ServiceCategoties.Insert(0, "Категории");
                 NotifyPropertyChanged(nameof(ServiceCategoties));
@@ -43,7 +45,7 @@ namespace Beauty.ViewModels.BarPagesVM.User {
         public IList<string> Services { get; set; }
         public string ServiceCategorySelected { get; set; } = "Категории";
         public string ServiceSelected { get; set; } = "Услуги";
-        public ObservableCollection<ServiceWorker> ServicesWorkers { get; private set; }
+        public ObservableCollection<WorkerService> ServicesWorkers { get; private set; }
 
         #region Commnand
         public ICommand SelectedCategotyServiceCommand { get; private set; }

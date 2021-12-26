@@ -10,6 +10,6 @@ namespace Beauty.EFDataAccessLibrary.Models {
         public string ServiceName { get; set; }
         public int SeviceCategoryId { get; set; }
         public ServiceCategory SeviceCategory { get; set; }
-        public List<ServiceWorker> ServicesWorkers { get; set; } = new List<ServiceWorker>();
+        public List<WorkerService> ServicesWorkers { get; set; } = new List<WorkerService>();
     }
 }

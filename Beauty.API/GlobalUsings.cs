@@ -1,0 +1,14 @@
+﻿global using Microsoft.AspNetCore.Builder;
+global using System.Text;
+global using Beauty.EFDataAccessLibrary.Contexts;
+global using Beauty.EFDataAccessLibrary.Models;
+global using Beauty.API.Services;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.AspNetCore.Hosting;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Hosting;
+global using Microsoft.IdentityModel.Tokens;
+global using Beauty.API.Interfaces;

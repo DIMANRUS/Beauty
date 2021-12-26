@@ -22298,6 +22298,9 @@ namespace Beauty.Droid
 			// aapt resource value: 0x7F0700A4
 			public const int user = 2131165348;
 			
+			// aapt resource value: 0x7F0700A5
+			public const int workers = 2131165349;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

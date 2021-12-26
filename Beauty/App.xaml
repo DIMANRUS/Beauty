@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Beauty.App"
              xmlns:xctk="http://xamarin.com/schemas/2020/toolkit"
-             xmlns:converters="clr-namespace:Beauty.Converters">
+             xmlns:converters="clr-namespace:Beauty.Converters"
+             >
     <Application.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="TextColor"
@@ -52,7 +53,7 @@
             <x:String x:Key="Salon">Salon</x:String>
             <x:String x:Key="All">All</x:String>
             <x:String x:Key="Master">Master</x:String>
-            <x:String x:Key="Admin">Admin</x:String>
+            <x:String x:Key="Admin">ADMIN</x:String>
             <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
             <converters:NullCheckConverter x:Key="NullCheckConverter" />
             <converters:UserRoleConverter x:Key="UserRoleConverter" />

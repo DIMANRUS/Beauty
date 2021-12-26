@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Beauty.EFDataAccessLibrary.Contexts;
-using Beauty.EFDataAccessLibrary.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Linq;
 
 namespace Beauty.API.Controllers {
     [Route("[controller]")]
@@ -23,10 +19,23 @@ namespace Beauty.API.Controllers {
         };
         [HttpGet]
         public async Task<string> GetServicesAndCategories() =>
-           JsonSerializer.Serialize<IEnumerable<ServiceCategory>>(await _db.ServiceCategories.Include(x => x.Services).ToListAsync(), options);
+           JsonSerializer.Serialize<IEnumerable<ServiceCategory>>(await _db.ServiceCategories
+               .Include(x => x.Services)
+               .ToListAsync(), options);
 
         [HttpGet("ServicesWorkers")]
         public async Task<string> GetSericesWorkers() =>
-            JsonSerializer.Serialize<IEnumerable<ServiceWorker>>(await _db.ServicesWorkers.Include(x => x.Service).Include(x=>x.User).ToListAsync(), options);
+            JsonSerializer.Serialize<IEnumerable<WorkerService>>(await _db.WorkerServices
+                .Include(x => x.Service)
+                .Include(x => x.User)
+                .ToListAsync(), options);
+
+        [HttpGet("ServicesWorkersByUserId/{id}")]
+        public async Task<string> GetWorkerServiceByUserId(int id) =>
+            JsonSerializer.Serialize<IEnumerable<WorkerService>>(await _db.WorkerServices
+                .Include(x => x.Service)
+                .Include(x => x.User)
+                .Where(x => x.UserId == id)
+                .ToListAsync(), options);
     }
 }

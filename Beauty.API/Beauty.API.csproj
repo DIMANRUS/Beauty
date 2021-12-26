@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <AspNetCoreModuleName>AspNetCoreModule</AspNetCoreModuleName>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,5 +32,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Responses\" />
+    <Folder Include="logs\" />
   </ItemGroup>
 </Project>
