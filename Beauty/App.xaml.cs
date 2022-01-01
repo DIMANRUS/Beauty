@@ -7,7 +7,7 @@ namespace Beauty {
     public partial class App {
         public App() {
             InitializeComponent();
-            Current.UserAppTheme = OSAppTheme.Light;
+            Current.UserAppTheme = OSAppTheme.Dark;
             Task loadUserDataTask = Task.Factory.StartNew(async () => await UserDataStore.Initializate());
             loadUserDataTask.Wait();
             MainPage = (UserDataStore.UserId is null) ? new AuthPage() : new BottomBarPage();

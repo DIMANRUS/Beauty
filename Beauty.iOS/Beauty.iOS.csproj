@@ -16,6 +16,8 @@
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <ProvisioningType>manual</ProvisioningType>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <LangVersion>default</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,19 +52,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>Apple Development: dimanrus@dimanrusdev.ru (54XSVK2L6C)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignEntitlements>
-    </CodesignEntitlements>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>None</MtouchLink>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>iOS Team Provisioning Profile: DIMANRUS.Beauty</CodesignProvision>
     <MtouchSdkVersion>15.2</MtouchSdkVersion>
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
-    <MtouchFloat32>true</MtouchFloat32>
     <IOSDebugOverWiFi>true</IOSDebugOverWiFi>
     <MtouchProfiling>true</MtouchProfiling>
     <MtouchInterpreter>-all</MtouchInterpreter>
+    <MtouchFloat32>true</MtouchFloat32>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -88,59 +89,13 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
-      <Visible>false</Visible>
-    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors" />
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2244" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
@@ -149,5 +104,36 @@
       <Project>{EF1A8C5B-EA22-4C54-BA37-E741C01ECE32}</Project>
       <Name>Beauty</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-1.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-18.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-19.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-2.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-20.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-21.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-22.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-23.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-24.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-25.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-26.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-27.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-30.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-31.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-32.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-33.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-34.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-35.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-36.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-37.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-40.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-41.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-6.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-7.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo.png" />
   </ItemGroup>
 </Project>

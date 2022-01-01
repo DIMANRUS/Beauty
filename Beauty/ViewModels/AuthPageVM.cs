@@ -17,6 +17,7 @@ using Beauty.Shared.Helpers;
 using Beauty.Helpers;
 using Beauty.Stores;
 using Xamarin.CommunityToolkit.ObjectModel;
+using NetworkAccess = Xamarin.Essentials.NetworkAccess;
 
 namespace Beauty.ViewModels {
     public class AuthPageVm : BaseVm {
