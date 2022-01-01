@@ -13,20 +13,21 @@ namespace Beauty.EFDataAccessLibrary.Contexts {
         public DbSet<ServiceCategory> ServiceCategories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             #region Roles
-            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole[] {
+            modelBuilder.Entity<IdentityRole>().HasData(new[] {
                 new IdentityRole("ADMIN"){ NormalizedName = "ADMIN"},
                 new IdentityRole("USER"){ NormalizedName = "USER"},
                 new IdentityRole("SALON"){NormalizedName = "SALON"},
-                new IdentityRole("WORKER"){NormalizedName = "WORKER"}
+                new IdentityRole("WORKER"){NormalizedName = "WORKER"},
+                new IdentityRole("WORKERSALON"){NormalizedName = "WORKERSALON"}
             });
             #endregion
             #region Services ServiceCategories
-            modelBuilder.Entity<Service>().HasData(new Service[]{
+            modelBuilder.Entity<Service>().HasData(new[]{
                 new Service(){ServiceName = "Кроп", Id = 1, SeviceCategoryId = 1},
                 new Service(){ServiceName = "Флет-топ", Id = 2, SeviceCategoryId = 1 },
                 new Service(){ServiceName = "Маникюр", Id = 3, SeviceCategoryId = 2 }
             });
-            modelBuilder.Entity<ServiceCategory>().HasData(new ServiceCategory[]{
+            modelBuilder.Entity<ServiceCategory>().HasData(new[]{
                 new ServiceCategory(){Id = 1, CategoryName="Стрижка"},
                 new ServiceCategory(){Id = 2, CategoryName="Маникюр"}
             });

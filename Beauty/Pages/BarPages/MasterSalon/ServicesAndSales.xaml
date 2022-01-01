@@ -6,7 +6,7 @@
              xmlns:vm="clr-namespace:Beauty.ViewModels.BarPagesVM.MasterSalon"
              xmlns:views="clr-namespace:Beauty.Views">
     <ContentPage.BindingContext>
-        <vm:ServiceAndSalesPageVM />
+        <vm:ServiceAndSalesPageVm />
     </ContentPage.BindingContext>
     <ContentPage.Behaviors>
         <xctk:EventToCommandBehavior Command="{Binding PageLoadingCommand}" />

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Beauty.Shared.Helpers {
     public class TokenHelper { 
-        IEnumerable<Claim> _claims;
+        private readonly IEnumerable<Claim> _claims;
         public TokenHelper(string token) =>
             _claims = new JwtSecurityTokenHandler().ReadJwtToken(token).Claims;
 

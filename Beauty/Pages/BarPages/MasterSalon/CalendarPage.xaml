@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Beauty.Pages.BarPages.MasterSalon.CalendarPage"
              xmlns:VM="clr-namespace:Beauty.ViewModels"
+             xmlns:masterSalon="clr-namespace:Beauty.ViewModels.BarPagesVM.MasterSalon;assembly=Beauty"
              Title="Календарь"
              x:Name="Page">
     <ContentPage.BindingContext>
-        <VM:CalendarPageVM />
+        <masterSalon:CalendarPageVm />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
     </ContentPage.Resources>

@@ -1,25 +1,20 @@
-﻿using Beauty.API.Interfaces;
-using System.Net;
-using System.Net.Mail;
-using System.Threading.Tasks;
-
-namespace Beauty.API.Services {
+﻿namespace Beauty.API.Services {
     public class MailService : IMailService {
-        MailMessage mail;
-        SmtpClient smtp;
+        private MailMessage _mail;
+        private SmtpClient _smtp;
         public async Task<bool> SendLetter(string email, string subject, string text) {
-            mail = new MailMessage();
-            smtp = new SmtpClient("smtp.yandex.ru");
-            mail.From = new MailAddress("dimanrusdev33@yandex.ru");
-            mail.To.Add(email);
-            mail.Subject = subject;
-            mail.Body = text;
-            mail.IsBodyHtml = true;
-            smtp.Port = 587;
-            smtp.Credentials = new NetworkCredential("dimanrusdev33@yandex.ru", "kcidkvgvbeprgiyb");
-            smtp.EnableSsl = true;
+            _mail = new MailMessage();
+            _smtp = new SmtpClient("smtp.yandex.ru");
+            _mail.From = new MailAddress("dimanrusdev33@yandex.ru");
+            _mail.To.Add(email);
+            _mail.Subject = subject;
+            _mail.Body = text;
+            _mail.IsBodyHtml = true;
+            _smtp.Port = 587;
+            _smtp.Credentials = new NetworkCredential("dimanrusdev33@yandex.ru", "kcidkvgvbeprgiyb");
+            _smtp.EnableSsl = true;
             try {
-                await smtp.SendMailAsync(mail);
+                await _smtp.SendMailAsync(_mail);
                 return true;
             } catch {
                 return false;

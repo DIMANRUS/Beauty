@@ -19,10 +19,10 @@ namespace Beauty.Droid {
     }
 
     internal class CustomBottomNavAppearance : IShellBottomNavViewAppearanceTracker {
-        private ShellCustomRenderer myShellRenderer;
+        private ShellCustomRenderer _myShellRenderer;
 
         public CustomBottomNavAppearance(ShellCustomRenderer myShellRenderer) {
-            this.myShellRenderer = myShellRenderer;
+            this._myShellRenderer = myShellRenderer;
         }
 
         public void Dispose() {

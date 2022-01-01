@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Beauty.Helpers {
     class HttpHelper : IDisposable {
-        readonly HttpClient _httpClient = new HttpClient() {
+        readonly HttpClient _httpClient = new () {
             BaseAddress = new Uri("https://api.beauty.dimanrus.ru/")
         };
         public async Task<T> GetRequest<T>(string url) {

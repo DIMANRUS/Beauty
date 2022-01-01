@@ -6,17 +6,14 @@ using Xamarin.CommunityToolkit.UI.Views;
 using Beauty.Helpers;
 
 namespace Beauty.ViewModels.BarPagesVM.User {
-    class UserServicesVM : BaseVM {
-        public UserServicesVM() {
+    class UserServicesVm : BaseVm {
+        public UserServicesVm() {
             PageLoadingCommand = new Command(async () => {
                 CurrentState = LayoutState.Loading;
-                using (HttpHelper httpHelper = new HttpHelper()) {
+                using (var httpHelper = new HttpHelper()) {
                     Orders = await httpHelper.GetRequest<ObservableCollection<Order>>("Order/GetOrders");
                 }
-                if (Orders.Count == 0)
-                    CurrentState = LayoutState.Empty;
-                else
-                    CurrentState = LayoutState.None;
+                CurrentState = Orders.Count == 0 ? LayoutState.Empty : LayoutState.None;
             });
         }
         public ObservableCollection<Order> Orders { get; set; }

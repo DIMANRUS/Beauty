@@ -6,8 +6,8 @@ using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 
 namespace Beauty.ViewModels.Shared {
-    public class BaseVM : INotifyPropertyChanged {
-        public BaseVM() {
+    public class BaseVm : INotifyPropertyChanged {
+        protected BaseVm() {
             Task.Run(async () => {
                 UserRole = await SecureStorage.GetAsync("UserRole");
                 NotifyPropertyChanged(nameof(UserRole));

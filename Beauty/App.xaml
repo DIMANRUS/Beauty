@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Beauty.App"
              xmlns:xctk="http://xamarin.com/schemas/2020/toolkit"
-             xmlns:converters="clr-namespace:Beauty.Converters"
-             >
+             xmlns:converters="clr-namespace:Beauty.Converters">
     <Application.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="TextColor"
@@ -20,8 +19,10 @@
                     Value="10" />
         </Style>
         <Style TargetType="{x:Type xctk:StateView}">
-            <Setter Property="BackgroundColor" Value="White"/>
-            <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            <Setter Property="BackgroundColor"
+                    Value="White" />
+            <Setter Property="VerticalOptions"
+                    Value="FillAndExpand" />
         </Style>
         <Style TargetType="{x:Type Image}"
                x:Key="IconForEntryStyle">
@@ -43,17 +44,20 @@
                     Value="White" />
         </Style>
         <Style TargetType="{x:Type Frame}">
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="CornerRadius" Value="20"/>
-            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin"
+                    Value="10" />
+            <Setter Property="CornerRadius"
+                    Value="20" />
+            <Setter Property="Padding"
+                    Value="10" />
         </Style>
         <ResourceDictionary>
-            <x:String x:Key="User">User</x:String>
+            <x:String x:Key="User">USER</x:String>
             <x:String x:Key="MasterSalon">MasterSalon</x:String>
-            <x:String x:Key="Salon">Salon</x:String>
+            <x:String x:Key="Salon">SALON</x:String>
             <x:String x:Key="All">All</x:String>
-            <x:String x:Key="Master">Master</x:String>
-            <x:String x:Key="Admin">ADMIN</x:String>
+            <x:String x:Key="Worker">WORKER</x:String>
+            <x:String x:Key="WorkerSalon">WORKERSALON</x:String>
             <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
             <converters:NullCheckConverter x:Key="NullCheckConverter" />
             <converters:UserRoleConverter x:Key="UserRoleConverter" />

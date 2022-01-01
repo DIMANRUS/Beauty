@@ -3,16 +3,14 @@ using Beauty.Helpers;
 using Beauty.ViewModels.Shared;
 using System.Collections.Generic;
 using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.Essentials;
 using Beauty.Stores;
 
 namespace Beauty.ViewModels.BarPagesVM.MasterSalon {
-    public class ServiceAndSalesPageVM : BaseVM {
-        public ServiceAndSalesPageVM() {
+    public class ServiceAndSalesPageVm : BaseVm {
+        public ServiceAndSalesPageVm() {
             PageLoadingCommand = new AsyncCommand(async () => {
-                using (HttpHelper httpHelper = new HttpHelper()) {
-                    WorkerServices = await httpHelper.GetRequest<IEnumerable<WorkerService>>($"https://api.beauty.dimanrus.ru/service/ServicesWorkersByUserId/{UserDataStore.UserId}");
-                }
+                using HttpHelper httpHelper = new ();
+                WorkerServices = await httpHelper.GetRequest<IEnumerable<WorkerService>>($"https://api.beauty.dimanrus.ru/service/ServicesWorkersByUserId/{UserDataStore.UserId}");
             });
         }
         #region Private fields

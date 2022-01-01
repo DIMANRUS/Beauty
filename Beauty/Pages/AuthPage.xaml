@@ -4,17 +4,20 @@
              x:Class="Beauty.Pages.AuthPage"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="White"
-             xmlns:VM="clr-namespace:Beauty.ViewModels"
+             xmlns:vm="clr-namespace:Beauty.ViewModels"
              xmlns:xctk="http://xamarin.com/schemas/2020/toolkit"
-             x:Name="page"
+             x:Name="Page"
              xmlns:views="clr-namespace:Beauty.Views">
     <ContentPage.Behaviors>
         <xctk:EventToCommandBehavior Command="{Binding OnAppearing}"
                                      EventName="Appearing" />
     </ContentPage.Behaviors>
     <ContentPage.BindingContext>
-        <VM:AuthPageVM/>
+        <vm:AuthPageVm />
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <x:String x:Key="Пользователь">Пользователь</x:String>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid xctk:StateLayout.CurrentState="{Binding CurrentState}"
               xctk:StateLayout.AnimateStateChanges="true">
@@ -43,13 +46,13 @@
                                Style="{StaticResource IconForEntryStyle}" />
                         <Entry Text="{Binding Password, Mode=OneWayToSource, Converter={StaticResource NullCheckConverter}}"
                                Placeholder="Введите пароль"
-                               IsPassword="True" 
-                               MaxLength="30"/>
+                               IsPassword="True"
+                               MaxLength="30" />
                         <Image Source="help.png"
                                Style="{StaticResource IconForEntryStyle}"
                                IsVisible="{Binding IsVisibleRegisterControls}">
                             <Image.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding OpenDialogAboutPassword}"/>
+                                <TapGestureRecognizer Command="{Binding OpenDialogAboutPassword}" />
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
@@ -77,7 +80,7 @@
                         <StackLayout Orientation="Horizontal">
                             <Image Source="group.png"
                                    Style="{StaticResource IconForEntryStyle}" />
-                            <Picker SelectedItem="{Binding UserRole}"
+                            <Picker SelectedItem="{Binding UserRole, TargetNullValue={StaticResource Пользователь}}"
                                     TextColor="Black"
                                     HorizontalOptions="FillAndExpand"
                                     FontSize="Subtitle"
@@ -97,7 +100,7 @@
                                    Placeholder="Адрес" />
                         </StackLayout>
                         <StackLayout Orientation="Horizontal"
-                                     IsVisible="{Binding UserRole, Mode=OneWay, Converter={StaticResource UserRoleConverter}, ConverterParameter={StaticResource Master}}">
+                                     IsVisible="{Binding UserRole, Mode=OneWay, Converter={StaticResource UserRoleConverter}, ConverterParameter={StaticResource Worker}}">
                             <Image Source="group.png"
                                    Style="{StaticResource IconForEntryStyle}" />
                             <Picker SelectedItem="{Binding IsSelfEmployed,Converter={StaticResource SelfEmployedConverter}}"
@@ -111,13 +114,6 @@
                                 </Picker.Items>
                             </Picker>
                         </StackLayout>
-                        <!--<StackLayout Orientation="Horizontal"
-                                     IsVisible="{Binding IsVisibleRegisterControls}">
-                            <Image Source="beardTrimmer.png"
-                                   Style="{StaticResource IconForEntryStyle}" />
-                            <Button Text="Выбрать"
-                                    Command="{Binding ChangeStateSelectionServicesView}" />
-                        </StackLayout>-->
                     </StackLayout>
                     <Button Text="{Binding AuthButtonText}"
                             CornerRadius="10"

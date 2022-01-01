@@ -7,7 +7,7 @@ namespace Beauty.EFDataAccessLibrary.Models {
         [StringLength(100)]
         public string Address { get; set; }
         public byte[] Photo { get; set; }
-        public bool IsSelfEmployed { get; set; }
+        public bool IsSelfEmployed { get; set; } = true;
         public List<WorkerService> ServicesWorkers { get; set; } = new List<WorkerService>();
         public List<Order> Orders { get; set; } = new List<Order>();
     }

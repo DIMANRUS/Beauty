@@ -10,7 +10,7 @@
        xmlns:salonPages="clr-namespace:Beauty.Pages.BarPages.Salon"
        xmlns:allPages="clr-namespace:Beauty.Pages.BarPages.All">
     <Shell.BindingContext>
-        <vm:BottomBarPageVM />
+        <vm:BottomBarPageVm />
     </Shell.BindingContext>
     <TabBar>
         <ShellContent Title="Поиск"

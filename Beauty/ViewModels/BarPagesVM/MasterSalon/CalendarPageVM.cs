@@ -1,9 +1,9 @@
-﻿using Beauty.ViewModels.Shared;
-using System;
+﻿using System;
+using Beauty.ViewModels.Shared;
 
-namespace Beauty.ViewModels {
-    public class CalendarPageVM : BaseVM {
-        public string DateNow { get; private set; } = DateTime.Now.Day + (DateTime.Now.DayOfWeek.ToString() switch {
+namespace Beauty.ViewModels.BarPagesVM.MasterSalon {
+    public class CalendarPageVm : BaseVm {
+        public string DateNow { get; } = DateTime.Now.Day + (DateTime.Now.DayOfWeek.ToString() switch {
             "Monday" => " ПН",
             "Tuesday" => " ВТ",
             "Wednasday" => " СР",
