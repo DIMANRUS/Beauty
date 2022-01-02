@@ -47,7 +47,9 @@
                         <Entry Text="{Binding Password, Mode=OneWayToSource, Converter={StaticResource NullCheckConverter}}"
                                Placeholder="Введите пароль"
                                IsPassword="True"
-                               MaxLength="30" />
+                               MaxLength="30"
+                               WidthRequest="220">
+                            </Entry>
                         <Image Source="help.png"
                                Style="{StaticResource IconForEntryStyle}"
                                IsVisible="{Binding IsVisibleRegisterControls}">
