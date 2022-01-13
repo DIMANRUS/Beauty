@@ -1,5 +1,4 @@
-﻿using Beauty.ViewModels;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Beauty.Pages

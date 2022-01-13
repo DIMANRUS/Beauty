@@ -106,30 +106,48 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\add.imageset\add.png" />
+    <ImageAsset Include="Assets.xcassets\add.imageset\add.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\add.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo.png" />
-    <ImageAsset Include="Assets.xcassets\beardTrimmer.imageset\beardTrimmer.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\beardTrimmer.imageset\beardTrimmer.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\beardTrimmer.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar.png" />
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\calendar.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\camera.imageset\camera.png" />
+    <ImageAsset Include="Assets.xcassets\camera.imageset\camera.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\camera.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\chat.imageset\chat.png" />
+    <ImageAsset Include="Assets.xcassets\chat.imageset\chat.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\chat.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\clock.imageset\clock.png" />
+    <ImageAsset Include="Assets.xcassets\clock.imageset\clock.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\clock.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
@@ -139,88 +157,170 @@
     <ImageAsset Include="Assets.xcassets\email.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\email.imageset\email.png" />
+    <ImageAsset Include="Assets.xcassets\email.imageset\email.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\filter.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\filter.imageset\filter.png" />
+    <ImageAsset Include="Assets.xcassets\filter.imageset\filter.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\group.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\group.imageset\group.png" />
+    <ImageAsset Include="Assets.xcassets\group.imageset\group.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\help.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\help.imageset\help.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-1.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-18.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-19.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-2.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-20.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-21.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-22.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-23.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-24.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-25.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-26.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-27.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-30.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-31.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-32.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-33.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-34.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-35.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-36.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-37.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-40.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-41.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-6.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-7.png" />
-    <ImageAsset Include="Assets.xcassets\logo.imageset\logo.png" />
+    <ImageAsset Include="Assets.xcassets\help.imageset\help.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-18.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-19.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-21.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-22.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-23.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-24.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-25.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-26.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-27.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-30.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-31.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-32.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-33.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-34.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-35.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-36.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-37.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-41.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-6.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo-7.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\nothingfound.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nothingfound.imageset\nothingfound.png" />
+    <ImageAsset Include="Assets.xcassets\nothingfound.imageset\nothingfound.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\password.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\password.imageset\password.png" />
+    <ImageAsset Include="Assets.xcassets\password.imageset\password.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\phone.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\phone.imageset\phone.png" />
+    <ImageAsset Include="Assets.xcassets\phone.imageset\phone.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\remove.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\remove.imageset\remove.png" />
+    <ImageAsset Include="Assets.xcassets\remove.imageset\remove.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\sale.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\sale.imageset\sale.png" />
+    <ImageAsset Include="Assets.xcassets\sale.imageset\sale.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\schedule.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\schedule.imageset\schedule.png" />
+    <ImageAsset Include="Assets.xcassets\schedule.imageset\schedule.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\search.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\search.imageset\search.png" />
+    <ImageAsset Include="Assets.xcassets\search.imageset\search.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\splash.dataset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\splash.dataset\splash.xml" />
+    <ImageAsset Include="Assets.xcassets\splash.dataset\splash.xml">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\statistic.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\statistic.imageset\statistic.png" />
+    <ImageAsset Include="Assets.xcassets\statistic.imageset\statistic.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\user.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\user.imageset\user.png" />
+    <ImageAsset Include="Assets.xcassets\user.imageset\user.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\workers.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\workers.imageset\workers.png" />
+    <ImageAsset Include="Assets.xcassets\workers.imageset\workers.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
 </Project>

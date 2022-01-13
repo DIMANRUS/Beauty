@@ -6,6 +6,7 @@
              BackgroundColor="White"
              xmlns:vm="clr-namespace:Beauty.ViewModels"
              xmlns:xctk="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:xfx="clr-namespace:Xfx;assembly=Xfx.Controls"
              x:Name="Page"
              xmlns:views="clr-namespace:Beauty.Views">
     <ContentPage.Behaviors>
@@ -49,7 +50,7 @@
                                IsPassword="True"
                                MaxLength="30"
                                WidthRequest="220">
-                            </Entry>
+                        </Entry>
                         <Image Source="help.png"
                                Style="{StaticResource IconForEntryStyle}"
                                IsVisible="{Binding IsVisibleRegisterControls}">
@@ -82,7 +83,7 @@
                         <StackLayout Orientation="Horizontal">
                             <Image Source="group.png"
                                    Style="{StaticResource IconForEntryStyle}" />
-                            <Picker SelectedItem="{Binding UserRole, TargetNullValue={StaticResource Пользователь}}"
+                            <Picker SelectedItem="{Binding UserRole, TargetNullValue={StaticResource Пользователь}, Converter={StaticResource PickerRoleConverter}}"
                                     TextColor="Black"
                                     HorizontalOptions="FillAndExpand"
                                     FontSize="Subtitle"
@@ -95,14 +96,14 @@
                             </Picker>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal"
-                                     IsVisible="{Binding UserRole, Mode=OneWay, Converter={StaticResource UserRoleConverter}, ConverterParameter={StaticResource MasterSalon}}">
-                            <Image Source="phone.png"
+                                     IsVisible="{Binding UserRole, Mode=OneWay, Converter={StaticResource UserRoleConverter}, ConverterParameter={StaticResource WorkerAndSalonVisible}}">
+                            <Image Source="place.png"
                                    Style="{StaticResource IconForEntryStyle}" />
                             <Entry Text="{Binding Phone, Mode=OneWayToSource}"
                                    Placeholder="Адрес" />
                         </StackLayout>
                         <StackLayout Orientation="Horizontal"
-                                     IsVisible="{Binding UserRole, Mode=OneWay, Converter={StaticResource UserRoleConverter}, ConverterParameter={StaticResource Worker}}">
+                                     IsVisible="{Binding UserRole, Mode=OneWay, Converter={StaticResource UserRoleConverter}, ConverterParameter={StaticResource WorkerAndWorkerSalonVisible}}">
                             <Image Source="group.png"
                                    Style="{StaticResource IconForEntryStyle}" />
                             <Picker SelectedItem="{Binding IsSelfEmployed,Converter={StaticResource SelfEmployedConverter}}"
@@ -115,6 +116,17 @@
                                     <x:String>Самозанятый</x:String>
                                 </Picker.Items>
                             </Picker>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     IsVisible="{Binding IsSelfEmployed, Converter={StaticResource InverseBoolConverter}}">
+                            <Image Source="place.png"
+                                   Style="{StaticResource IconForEntryStyle}" />
+                            <xfx:XfxComboBox HorizontalOptions="FillAndExpand"
+                                             TextColor="Black"
+                                             FontSize="Subtitle"
+                                             BackgroundColor="White"
+                                             Placeholder="Выберите салон, начав вводить название"
+                                             ItemsSource="{Binding Salons}"/>
                         </StackLayout>
                     </StackLayout>
                     <Button Text="{Binding AuthButtonText}"

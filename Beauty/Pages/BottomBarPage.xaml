@@ -16,30 +16,30 @@
         <ShellContent Title="Поиск"
                       Icon="search.png"
                       ContentTemplate="{DataTemplate userPages:SearchServicePage}"
-                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource User}, Mode=OneWay}" />
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource UserVisible}, Mode=OneWay}" />
         <ShellContent Title="Запись"
                       Icon="clock.png"
                       ContentTemplate="{DataTemplate userPages:UserServices}"
-                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource User}, Mode=OneWay}" />
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource UserVisible}, Mode=OneWay}" />
         <ShellContent Title="Календарь"
                       Icon="calendar.png"
                       ContentTemplate="{DataTemplate masterSalonPages:CalendarPage}"
-                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource MasterSalon}, Mode=OneWay}" />
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource WorkerAndSalonAndWorkerSalonVisible}, Mode=OneWay}" />
         <ShellContent Title="Услуги"
                       Icon="beardTrimmer.png"
                       ContentTemplate="{DataTemplate masterSalonPages:ServicesAndSales}"
-                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource MasterSalon}, Mode=OneWay}" />
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource WorkerAndSalonAndWorkerSalonVisible}, Mode=OneWay}" />
         <ShellContent Title="Статистика"
                       Icon="statistic.png"
                       ContentTemplate="{DataTemplate masterSalonPages:Statistic}"
-                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource MasterSalon}, Mode=OneWay}" />
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource WorkerAndSalonVisible}, Mode=OneWay}" />
         <ShellContent Title="Мастера"
                       Icon="workers.png"
                       ContentTemplate="{DataTemplate salonPages:Workers}"
-                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource Salon}, Mode=OneWay}" />
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource SalonVisible}, Mode=OneWay}" />
         <ShellContent Title="Профиль"
                       Icon="user.png"
                       ContentTemplate="{DataTemplate allPages:ProfilePage}"
-                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource All}, Mode=OneWay}" />
+                      IsVisible="{Binding UserRole, Converter={StaticResource UserRoleConverter},ConverterParameter={StaticResource AllVisible}, Mode=OneWay}" />
     </TabBar>
 </Shell>

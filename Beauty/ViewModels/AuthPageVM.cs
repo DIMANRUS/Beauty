@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Windows.Input;
 using Beauty.ViewModels.Shared;
@@ -11,7 +13,6 @@ using Xamarin.Essentials;
 using Xamarin.CommunityToolkit.UI.Views;
 using System.Threading.Tasks;
 using Beauty.Pages;
-using System.Collections.Generic;
 using System.IO;
 using Beauty.Shared.Helpers;
 using Beauty.Helpers;
@@ -26,6 +27,7 @@ namespace Beauty.ViewModels {
         private string _authButtonText = "Войти";
         private string _changeTypeAuthButtonText = "Зарегистрироваться";
         private byte[] _photo;
+        private bool _isSelfEmployyed = true;
         #endregion
         public AuthPageVm() {
             OnAppearing = new Command(()
@@ -98,7 +100,7 @@ namespace Beauty.ViewModels {
             OpenDialogAboutPassword = new AsyncCommand(async () =>
                 await _page.DisplayAlert("Требования к паролю:", "- От 8 до 30 символов\n-Должен содеражть хотябы одну заглавную букву и цифру\n- Должен содержать хотябы один специальный символ: !@~.", "Ок"));
         }
-        #region Public fields
+        #region Properties
         public string Email { get; set; }
         public string Password { get; set; }
         public string UserName { get; set; }
@@ -110,7 +112,12 @@ namespace Beauty.ViewModels {
         public string ChangeTypeAuthButtonText { get => _changeTypeAuthButtonText; set { _changeTypeAuthButtonText = value; NotifyPropertyChanged(); } }
 
         public bool IsVisibleRegisterControls { get; private set; }
-        public bool IsSelfEmployed { get; set; } = true;
+        public bool IsSelfEmployed {
+            get => _isSelfEmployyed;
+            set => Set(ref _isSelfEmployyed, value);
+        }
+
+        public IEnumerable<string> Salons => new string[] {"Привет","Пока","Покатушки" };
         #endregion
         #region Commands
         public ICommand AuthRegClick { get; }

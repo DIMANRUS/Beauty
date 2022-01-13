@@ -1,11 +1,8 @@
-﻿using System;
-using Android.Content;
-using Android.Views;
+﻿using Android.Content;
 using Beauty.Droid;
 using Google.Android.Material.BottomNavigation;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-using static Android.Provider.CalendarContract;
 
 [assembly: ExportRenderer(typeof(Shell), typeof(ShellCustomRenderer))]
 namespace Beauty.Droid {

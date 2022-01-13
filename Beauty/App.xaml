@@ -52,16 +52,23 @@
                     Value="10" />
         </Style>
         <ResourceDictionary>
-            <x:String x:Key="User">USER</x:String>
-            <x:String x:Key="MasterSalon">MasterSalon</x:String>
-            <x:String x:Key="Salon">SALON</x:String>
-            <x:String x:Key="All">All</x:String>
-            <x:String x:Key="Worker">WORKER</x:String>
-            <x:String x:Key="WorkerSalon">WORKERSALON</x:String>
+            <x:String x:Key="UserRole">USER</x:String>
+            <x:String x:Key="SalonRole">SALON</x:String>
+            <x:String x:Key="WorkerRole">WORKER</x:String>
+            <x:String x:Key="WorkerSalonRole">WORKERSALON</x:String>
+            <x:String x:Key="AllVisible">AllVisible</x:String>
+            <x:String x:Key="UserVisible">UserVisible</x:String>
+            <x:String x:Key="WorkerVisible">WorkerVisible</x:String>
+            <x:String x:Key="SalonVisible">SalonVisible</x:String>
+            <x:String x:Key="WorkerSalonVisible">WorkerSalonVisible</x:String>
+            <x:String x:Key="WorkerAndWorkerSalonVisible">WorkerAndWorkerSalonVisible</x:String>
+            <x:String x:Key="WorkerAndSalonAndWorkerSalonVisible">WorkerAndSalonAndWorkerSalonVisible</x:String>
+            <x:String x:Key="WorkerAndSalonVisible">WorkerAndSalonVisible</x:String>
             <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
             <converters:NullCheckConverter x:Key="NullCheckConverter" />
             <converters:UserRoleConverter x:Key="UserRoleConverter" />
             <converters:SelfEmployedConverter x:Key="SelfEmployedConverter" />
+            <converters:PickerRoleConverter x:Key="PickerRoleConverter" />
         </ResourceDictionary>
     </Application.Resources>
 
