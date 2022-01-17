@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Beauty.Shared.Requests {
+namespace Beauty.Requests {
     public class RegistrationModelRequest {
         [Required]
         [StringLength(100, MinimumLength = 5)]

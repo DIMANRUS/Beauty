@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Windows.Input;
 using Beauty.ViewModels.Shared;
 using Xamarin.Forms;
-using Beauty.Shared.Requests;
 using Newtonsoft.Json;
 using System.Text;
 using System.Net;
@@ -14,11 +12,11 @@ using Xamarin.CommunityToolkit.UI.Views;
 using System.Threading.Tasks;
 using Beauty.Pages;
 using System.IO;
-using Beauty.Shared.Helpers;
 using Beauty.Helpers;
 using Beauty.Stores;
 using Xamarin.CommunityToolkit.ObjectModel;
 using NetworkAccess = Xamarin.Essentials.NetworkAccess;
+using Beauty.Requests;
 
 namespace Beauty.ViewModels {
     public class AuthPageVm : BaseVm {

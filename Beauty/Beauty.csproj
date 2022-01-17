@@ -41,7 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Beauty.EFDataAccessLibrary\Beauty.EFDataAccessLibrary.csproj" />
-    <ProjectReference Include="..\Beauty.Shared\Beauty.Shared.csproj" />
+    <ProjectReference Include="..\Beauty.Helpers\Beauty.Helpers.csproj" />
+    <ProjectReference Include="..\Beauty.Requests\Beauty.Requests.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\BarPagesVM\Salon\" />

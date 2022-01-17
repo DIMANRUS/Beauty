@@ -7,11 +7,11 @@ using Beauty.Pages;
 using System.IO;
 using System.Threading.Tasks;
 using System.Net.Http;
-using Beauty.Shared.Responses;
-using Beauty.Shared.Requests;
 using System.Net;
 using Xamarin.CommunityToolkit.UI.Views;
 using Beauty.Helpers;
+using Beauty.Requests;
+using Beauty.Responses;
 
 namespace Beauty.ViewModels.BarPagesVM.All {
     class ProfilePageVm : BaseVm {

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-
-namespace Beauty.Shared.Helpers {
+namespace Beauty.Helpers {
     public static class AutoMaperHelper<TSource, TDestination> {
         public static TDestination GetDestination(TSource source) {
             var config = new MapperConfiguration(cfg =>

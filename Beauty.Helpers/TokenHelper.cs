@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Linq;
+using System.Security.Claims;
 
-namespace Beauty.Shared.Helpers {
+namespace Beauty.Helpers {
     public class TokenHelper { 
         private readonly IEnumerable<Claim> _claims;
         public TokenHelper(string token) =>
