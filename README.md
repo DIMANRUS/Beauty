@@ -1,2 +1,1 @@
 # Beauty
- For KZ
